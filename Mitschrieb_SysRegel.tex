@@ -1,0 +1,668 @@
+\documentclass[12pt,a4paper,ngerman]{scrartcl}
+
+%% Laden der benoetigten Pakete:
+
+\usepackage[latin1]{inputenc} %% West- & Mitteleuropa-Kodierung (Windows)
+
+\usepackage{babel}% umfangreiches Sprachpaket (Silbentrennung, Gliederungen usw.)
+
+\usepackage{graphicx}% Graphikpaket (fuer PNG,GIF,JPG)
+
+\usepackage[caption=false]{subfig}% Mehrfachabbildungen
+
+\usepackage{float,rotating}%Option [H] fuer fixe Position; Drehung von Abbildungen etc.
+
+\usepackage{array,booktabs}%erweiterte Moeglichkeiten zur Tabellendarstellung
+
+\usepackage{capt-of}
+
+\usepackage{subfig}
+
+\usepackage{wrapfig} %Einbetten von Bildern, Tables etc. in den Text ermöglichen
+
+\usepackage{cite} %Zitieren nach IEEE mit dem Befehl \cite{bla} auf Refrent in thebibliography mit kennung "`bla"'
+
+\usepackage{float} % Bei Gleitobjekten Position mit [H] festsetzen! (Sparsam verwenden!)
+%
+% fix citations to be IEEE style
+\def\citepunct{], [}
+\def\citedash{]--[}
+
+\usepackage{amsmath,amssymb,amsfonts,amsthm}% American Mathematical Society Pakete
+\usepackage{textcomp,gensymb}% umfangreiche Pakete fuer Symbole wie:
+%% \textmu, \textcelsius, \micro, \ohm, \degree, \celsius
+%K�rzen in formeln
+\usepackage{cancel}
+%Farben erm�glichen
+\usepackage{color} 
+
+%\multirow erm�glichen in Tabellen
+\usepackage{multirow} 
+
+%Bessere Worttrennung, Kerning ein. 
+\usepackage[protrusion=true,expansion=true, kerning]{microtype}
+
+%% Bildunterschriftengestaltung:
+\addtokomafont{caption}{\footnotesize}
+\addtokomafont{captionlabel}{\bfseries}
+\usepackage[pdftex]{hyperref}
+
+\newtheorem{bsp}{Beispiel}[section] %Beispielumgebung, zählschema: Kapittelnummer.Beispielnummer
+
+\setcapwidth[l]{1\linewidth} %Captions unter Tabellen, Bildern etc. Linksbündig und wenn nötig die gersame Seitenbreite
+
+%Einzelzeilen oben und unten unterbinden ("`Hurenkinder"' und "`Schusterjungen"')
+\clubpenalty = 10000
+\widowpenalty = 10000 
+\displaywidowpenalty = 10000
+
+%% Kopf- und Fusszeilengestaltung:
+\usepackage{fancyhdr}
+\pagestyle{fancy}%Seitenstil mit Kopf- und Fußzeilen
+%\lhead{Modul 2} % MODUL O.Ä. HIER EINTRAGEN
+%\chead{Gruppe 2}  % GRUPPE, NAME O.Ä. HIER EINTRAGEN
+\rhead{Seite \thepage} \lfoot{} \cfoot{} \rfoot{} %Seitenzahlen in Header ausgeben
+\renewcommand{\headrulewidth}{0.2pt} %Größe der Kopfzeile
+
+%Dokumentinformationen (Erscheint, wenn man mit der Maus über dem fertigen PDF schwebt. Erst NACH einsetzen der korrekten Daten einkommentieren, falsche Titel etc. sind peinlich.
+
+\author{William Glover}
+\title{Systemtheorie und Regelungstechnik} 
+
+%% Layout-Umdefinitionen für die Titelseite (Zum benutzen Kommentierungen mit % vor den Kommandos entfernen) Umdefinition für das restliche Dokument findet an anderer Stelle statt!
+
+% \renewcommand{\baselinestretch}{1.5} %1.5facher Zeilenabstand
+% \renewcommand{\labelitemi}{-} %Spiegelstriche statt Bullets
+
+%% Gestaltung der Titelseite:
+\renewcommand\maketitle{
+    \begin{titlepage}
+        \sffamily
+        \thispagestyle{empty}
+              \includegraphics[height=2.5cm]{IMTEK_Logo_Farbe}\hfill\includegraphics[height=3cm]{Uni_Siegel}
+        \par
+        \vspace{2cm}
+        \begin{center}
+            \Huge \textbf{Mitschrieb der Vorlesung ``Systemtheorie und Regelungstechnik''}\\
+            (SS 2010)\\[6cm]
+            \end{center}
+            %\includegraphics[height=7cm]{Bla} % BILD AUF DECKBLATT HIER EINBAUEN 
+           
+% Tabellarische Auflistung der wichtigen Daten des nachfolgenden Werkes. Nach belieben anpassen.
+
+            \begin{tabular}{l}
+                \large Dozent: Dr.-Ing. A. Peter\\
+         \end{tabular}
+         \\
+						\begin{tabular}{ll}
+                \large Textsatz von William Glover \\
+                \large Stand: \today
+            \end{tabular}
+        
+        
+%Leere Seite, damit Inhaltsverzeichnis nicht auf der Rückseite des Deckblattes.(Bei Druckversion, bei Emailabgabe auskommentieren!)
+
+ 			 \newpage 
+       \thispagestyle{empty}~
+       \newpage
+
+%Ende leere Zwischenseite   
+ 
+\end{titlepage}
+}
+
+%% Liste fuer Silbentrennung bei komplexen Woertern:
+\hyphenation{reibungslos schluss-endlich realisiert ter-min-liche}
+
+%% Layout-Umdefinitionen:
+\renewcommand{\baselinestretch}{1.5} %1.5facher Zeilenabstand
+% \renewcommand{\labelitemi}{-} %Spiegelstriche statt Bullets
+\setlength{\parindent}{0pt} % kein Erstzeileneinzug
+\begin{document}
+\maketitle %Titelseite setzen
+\clearpage %danach neue Seite
+\renewcommand{\baselinestretch}{1.5} %1.5facher Zeilenabstand
+\thispagestyle{empty} %Header auf Titelseite unterdrücken
+
+\tableofcontents %Inhaltsverzeichnis setzen
+\newpage 
+
+%Leere Seite, damit Inhalt nicht auf der Rückseite des Inhaltsverzeichnisses beginnt. (Bei Druckversion, bei Emailabgabe auskommentieren!)
+        
+        \thispagestyle{empty}~
+        \newpage
+     
+%Ende leere Zwischenseite
+
+\setcounter{page}{2} %Seitenzahl auf 2 setzen
+
+% AB HIER BEGINNEN DIE INHALTE!
+
+\addtocounter{section}{-1}%Counter einstellen, sodass Vorwort Kapitel 0 ist.
+\section{Vorwort}
+
+\begin{description}
+\item[Systemtheorie, Kybernetik:] Allgemeine, formale Wissenschaft von der Struktur, den Relationen und dem Verhalten dynamischer, insbesondere komplexer Systeme, die gewisse allgemeine Eigenschaften realer Systeme aus den verschiedenen Bereichen der Wirklichkeit widerspiegeln. 
+\end{description}
+
+\subsection*{Ziele}
+
+\subsubsection*{Beschreibung dynamischer Systeme}
+\begin{description}
+\item[Methoden:] Modellierung (z.B. als Blockschaltbild, DGL oder �bertragungsfunktion), Simulation (kosteng�nstig, ungef�hrlich), ...
+\end{description}
+
+\subsubsection*{Analyse dynamischer Systeme}
+Fragestellungen wie z.B. ist das System...
+\begin{itemize}
+\item ...stabil?
+\item ...steuerbar?
+\item ...schwingungsf�hig?
+\end{itemize}
+
+\subsubsection*{Beeinflussung dynamischer Systeme}
+Ziel der Systemtheorie ist ein \emph{automatisierter, sicherer, optimaler Betrieb von technischen Systemen}. Dies kann auf zwei Arten erreicht werden
+\begin{itemize}
+\item \textbf{Regelung (kont. Systemzust�nde):} Ansteuerung des Systems, sodass die Ausgangsgr��e den gew�nschten Sollverlauf erreicht
+\item \textbf{Steuerung (diskrete Systemzust�nde):} Bei gest�rten oder zum Teil unbekannten Systemen fortlaufende Systembeobachtung und R�ckf�hrung.
+\end{itemize}
+
+\section{Beschreibung dynamischer Systeme durch das Blockschaltbild (BSB)}
+
+\subsection{Beispiele zum Aufstellen eines BSB}
+\begin{bsp}[F�llen eines Beh�lters]
+\end{bsp}
+\begin{figure}[H]%In Figure einpacken, damit am ENde der Minipageumgebung genug Abstand zum folgenden Text gelassen wird
+\begin{minipage}{0.4\linewidth} 
+ \begin{figure}[H]
+  \includegraphics[width=\linewidth]{sysregel_bsp_1} 
+  \end{figure}
+\end{minipage}
+\begin{minipage}{.6\linewidth}
+$q(t):\text{Zufluss}$\\
+$h(t):\text{F�llstand}$\\
+$A:\text{Grundfl�che des Beh�lters}$
+\end{minipage}
+\end{figure}
+L�sst sich hier eine Gesetzm��igkeit erkennen? Ja! Volumenbilanz:
+\begin{equation*}
+ v(t)= A \cdot h(t)=\int_0^t{q(\tau)d\tau}(+v_0) 
+\end{equation*}
+$v_0$: Volumen zum Zeitpunkt $t=0$ \\$\Rightarrow \text{f�r } v_0 = 0$ gilt:
+\begin{equation*}
+h(t)=\frac{1}{A}\int_0^t{q(\tau)d\tau}
+\end{equation*}
+Diese Abh�ngigkeit l�sst sich als ein sogenanntes \emph{Blockschaltbild} wie folgt darstellen:
+\begin{figure}[h!]
+\includegraphics[width=9cm]{sysregel_bsb1}
+\end{figure}
+Es ist naheliegend, f�r �bliche Operationen eine Bibliothek mit Standard-Bl�cken anzulegen, im hier betrachteten Fall z.B. das sogenannte \emph{Integrierglied} (I-Glied).
+Die allgemeine Integrationsfunktion
+\begin{equation*}
+  y(t)=k*\int_0^t{u(\tau)d\tau}
+\end{equation*}
+wird durch den folgenden Standardblock beschrieben:
+\begin{figure}[H]
+  \includegraphics[width=7cm]{sysregel_iglied}
+\end{figure}
+\begin{bsp}[Erweiterung des Beh�lters um einen Ablauf]
+\end{bsp}
+\begin{figure}[H]
+\begin{minipage}{0.4\linewidth}
+\begin{figure}[H]
+  \includegraphics[width=.9\linewidth]{sysregel_bsp_2}  
+\end{figure}
+\end{minipage}
+\begin{minipage}{0.6\linewidth}
+$\begin{array}{lll}
+q(t)&:&\text{Zufluss}\\
+h(t)&:&\text{F�llstand}\\
+A&:&\text{Grundfl�che des Beh�lters}\\
+q_{ab}(t)&:&\text{Abfluss}
+\end{array}$
+\end{minipage}
+\end{figure}
+F�r diesen erweiterten Fall wird erneut die Vulumenbilanz aufgestellt:
+\begin{equation*}
+ v(t)= A \cdot h(t)=\int_0^t{q(\tau)-q_{ab}d\tau}=\int_0^t{u(\tau)d\tau} 
+\end{equation*}
+Diese l�sst sich unter der Annahme, dass $q_{ab}$ von der aktuellen F�llh�he abh�ngt, erneut in einem Blockschaltbild folgenderma�en darstellen:
+\begin{figure}[H]
+\includegraphics[width=7cm]{sysregel_bsb2}
+\end{figure}
+Hier wurden bereits zwei weitere, wichtige Standardbl�cke eingef�hrt:
+\begin{figure}[H]
+\includegraphics[height=2.5cm]{sysregel_spglied}
+\end{figure}
+Anhand des Blockschaltbild erkennt man sehr leicht, dass der F�llstand $h(t)$ sich nach einer gewissen Zeit nicht mehr �ndert. Der aktuelle F�llstand wird zur�ckgef�hrt und vor der Integration von $q(t)$ abgezogen. Sobald gilt $q_{ab}=q$, bleibt $h(t)$ konstant. $u(t)$ wird Null (Station�rer Zustand)!
+
+Da das beschriebene Systemverhalten sehr h�ufig vorkommt, wird dieses Blockschaltbild zu einem eigenen Standardblock zusammengefasst:
+\begin{figure}[H]
+\includegraphics[height=4cm]{sysregel_pt1}
+\end{figure}
+
+\begin{bsp}[RC-Glied]
+\end{bsp}
+\begin{figure}[H]
+\includegraphics[height=2.5cm]{sysregel_RC}
+\end{figure}
+Das abgebildete RC Glied wird durch die Gleichungen
+\begin{align*}
+  \begin{array}{lrlll}
+  U_a(t)&=&&\frac{1}{C}*\int_0^t{i(\tau)d\tau}\\
+  U_e&=&&U_R+U_a &\Rightarrow U_R=U_e+U_a\\
+  \rightarrow i&=&&\frac{U_R}{R}\\
+  \Rightarrow i&=&&\frac{1}{R}(U_e-U_a)
+ \end{array}
+\end{align*}
+beschrieben. F�r $U_a$ ergibt sich daraus die Gleichung
+\begin{equation*}
+  U_a(t)=\frac{1}{RC}*\int_0^t{U_e(\tau)-U_a(\tau)d\tau}
+\end{equation*}
+Auch diese Funktion wird anschlie�end als Blockschaubild dargestellt:
+\begin{figure}[H]
+\includegraphics[width=7cm]{sysregel_bsb3}\\
+\end{figure}
+\begin{description}
+\item[Man erkennt:] Es handelt sich hier ebenfalls um ein Verz�gerungsglied 1. Ordnung. Unabh�ngig von der physikalischen Realisierung haben beide Systeme die gleiche dynamische Struktur!
+\end{description}
+\begin{bsp}[Erweiterung des Beh�lters um einen Schwimmer]
+\end{bsp}
+\begin{minipage}{.4\linewidth}
+\begin{figure}[H]
+  \includegraphics[height=4cm]{sysregel_bsp_4}
+\end{figure}
+\end{minipage}
+\begin{minipage}{.6\linewidth}
+\begin{align*}
+\begin{array}{lll}
+h&:& y $ in Ruhe$\\
+m&:& $Masse des Schwimmers$\\
+a&:& $Fl�che des Schwimmers$\\
+\rho&:& $Dichte der Fl�ssigkeit$\\
+\end{array}
+\end{align*}
+\end{minipage}
+Die Auftriebskraft ist gegeben durch $F= (h(t)-y(t))\cdot a \cdot \rho \cdot g$. Durch Umformen l�sst sich hieraus die vom Zeiger des Schwimmers angezeigte Skalaposition berechnen:
+\begin{equation*}
+  F=m \cdot a = m \cdot \ddot{y}=(h(t)-y(t))\cdot a \cdot \rho \cdot g
+\end{equation*}
+\begin{equation*}
+  \Leftrightarrow \ddot{y}= \frac{a \cdot \rho \cdot g}{m}(h(t)-y(t))
+\end{equation*}
+\begin{equation*}
+  \Rightarrow y(t) = \frac{a \cdot \rho \cdot g}{m}\int_0^t{\int_0^\tau{h(T)-y(T)dT}d\tau}
+\end{equation*}
+
+\subsubsection*{BSB}
+
+\begin{figure}[H]
+  \centering
+\includegraphics[width=.8\linewidth]{sysregel_bsb5}  
+\end{figure}
+
+Auch f�r das $PT_2$-Glied wird ein eigenes Standardsymbol definiert:
+\begin{figure}[H]
+\includegraphics[width=5cm]{sysregel_pt2glied}
+  
+\end{figure}
+
+
+\begin{bsp}[Zuleitung]
+\end{bsp}
+\begin{figure}[H]
+\begin{minipage}{.6\linewidth}
+\begin{figure}[H]
+ \includegraphics[width=.9\linewidth]{sysregel_bsp_5} 
+\end{figure}
+\end{minipage}
+\begin{minipage}{.4\linewidth}
+\begin{tabular}{lll}
+$l$&:& Rohrl�nge\\
+$a$&:&Rohrquerschnitt\\
+$v=\frac{q}{a}$&:& Flie�geschwindigkeit
+\end{tabular}
+\end{minipage}
+\end{figure}
+
+Die Zeit, bis eine Probemenge das Rohr durchflossen hat, wird \emph{Totzeit $T_t$} genennt. Sie ist gegeben durch
+\begin{equation*}
+  T_t=\frac{l}{v}=\frac{l \cdot a}{q}
+\end{equation*}
+$T_A$ und $T_E$ sind die Temperaturen am Rohranfang bzw. Rohrende. Unter der Annahme, dass das Rohr perfekt isoliert ist, beim Transport also keine W�rme verloren geht, h�ngen diese beiden Gr��en �ber die Sprungfunktion
+\begin{equation*}
+  T_E(t)=T_A(t-T_t)
+\end{equation*}
+zusammen. Dieser Zusammenhang wird im Blockschaubild durch das sogenannte \emph{Totzeitglied} dargestellt:
+\begin{figure}[H]
+  \includegraphics[width=4cm]{sysregel_tglied}
+\end{figure}
+
+\subsubsection*{Blockschaltbilder}
+\begin{itemize}
+\item beschreiben Ursache-Wirkungszusammenh�nge in einer allgemeinen Form
+\item sind insbesondere bei komplexen Systemen oft �bersichtlicher als Darstellungen in Gleichungen
+\item lassen sich schrittweise aufbauen und verifizieren
+\item sind Basis f�r numerische Simulationen($\rightarrow$ Simulink)
+\end{itemize}
+
+\subsection{H�ufig verwendete �bertragungsglieder}
+
+\begin{itemize}
+\item \textbf{elementare: }P,I,D,S,$T_t$
+\item \textbf{zusammengesetzte: } $PT_1, PT_2$
+\item \textbf{nichtlineare: } KL, M
+\end{itemize}
+In der Vorlesung werden haupts�chlich elementare und zusammengesetzte �bertragungsglieder verwendet!
+
+\subsection{Nichtlineare Glieder und Linearisierung}
+
+\begin{figure}[H]
+  \begin{minipage}{.4\linewidth} %Anfang Bildbereich, 0,45 % der Seitenbreite
+\begin{figure}[H]
+\includegraphics[height=5.5cm]{sysregel_bsp6} % Hier Bild einf�gen
+\end{figure}
+ \end{minipage}% Ende des Bildbereiches
+  \begin{minipage}{.6\linewidth} %Anfang Formelbereich, 0,55 % der Seitenbreite
+   \begin{align*}
+    &&J*\ddot{\phi}&&=&&&M\\
+\rightarrow&& m\cdot l^2 \cdot \ddot{\phi} &&=&&& -m\cdot g \cdot l \cdot sin(\phi)\\
+\rightarrow&& l \cdot \ddot{\phi}&&=&&&-g*sin(\phi)\\
+\rightarrow&& \ddot{\phi}&&=&&& -\frac{g}{l}sin(\phi)
+   \end{align*}
+   \begin{tabular}{lll}
+$J$&:& Tr�gheitsmoment\\
+$M$&:& Drehmoment
+  
+   \end{tabular}
+
+\end{minipage}% Ende des Tabellenbereiches
+\end{figure}
+
+Erneut wird das Blockschaltbild aufgestellt, unter Verwendung des sog. \emph{Kennliniengliedes} (KL-Glied):
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.5\linewidth]{sysregel_bsb4}
+\end{figure}
+
+Ein nichtlineares System l�sst sich zwar numerisch simulieren, stellt aber ein Problem bei der Analyse oder beim Regelentwurf dar. Als Hilfsmittel wird daher eine Linearisierung im Arbeitspunkt verwendet.
+\begin{description}
+\item[Arbeitspunkt: ]Betriebszustand eines Systems, in dem die zeitver�nderlichen Gr��en fest sind (station�rer Zustand) und sich das System in einem gew�nschten Sollzustand befindet. 
+\end{description}
+Wird das System nun um den Arbeitspunkt linearisiert, sind die Abweichungen zwischen nichtlinearem und linearem Modell \emph{in der Umgebung um diesen Arbeitspunkt herum }nur klein. Bei zu gro�er Abweichung vom Arbeitspunkt bildet das lineare Modell das nichtlineare nur unzureichend ab. Der Arbeitspunkt muss dann ver�ndert/neu bestimmt werden. 
+
+\subsubsection*{Linearisierung eines KL-Gliedes}
+\begin{figure}[H]
+\center
+  \includegraphics[width=6cm]{sysregel_klglied}
+\end{figure}
+
+\begin{eqnarray*}
+  y&=&f(u) \\
+y_0+ \Delta y &=& f(u_0+ \Delta u)
+\end{eqnarray*}
+Es wird nun die Taylorreihen-Entwicklung f�r diese Funktion durchgef�hrt:
+\begin{eqnarray*}
+  y_0+\Delta y &=& f(u_0) + [\frac{df(u)}{du}]_{u_0} \cdot \Delta u + \dots\\
+  \Rightarrow y_0& =& f(u_0)\\ \Delta y &=&[\frac{df(u)}{du}]_{u_0} \cdot \Delta u + \dots \text{ (Nichtlineare Terme werden Vernachl�ssigt!)}
+\end{eqnarray*}
+z.B. $y=sin(\phi)$: Linearisierung um den Arbeitspunkt $\phi_0 =0$
+\begin{eqnarray*}
+y_0 &=& 0\\
+\Delta y&=& [cos(\phi)]_{\phi_0 =0} \cdot \Delta \phi\\
+\Rightarrow T_y &=& 1 \cdot \Delta \phi 
+\end{eqnarray*}
+
+\begin{figure}[H]
+\center
+\includegraphics[width=8cm]{sysregel_linear}
+\end{figure}
+
+\section{Systembeschreibung im Zeitbereich}
+
+\subsection{Differentialgleichungen}
+
+\subsubsection{Aufstellen der DGL}
+
+Die Differentialgleichung eines Systems kann auf 2 Arten bestimmt werden:
+\begin{itemize}
+\item aus den physikalischen Gleichungen, z.B.:
+  \begin{itemize}
+  \item Bewegungsgleichungen: $F(t)=m \cdot \ddot{x}(t)$ ; $M(t)=J \cdot \ddot{\phi}$
+  \item Bilanzierung von Volumen: $q_{zu}(t)-q_{ab}(t)=\dot{v}(t)$ 
+  \end{itemize}
+\item aus dem Blockschaubild:
+  \begin{itemize}
+  \item eventuell Hilfsgr��en einf�hren (z.B. Ausgang von S-Gliedern,\dots
+  \item Entgegen der Signalflussrichtung durch das BSB gehen und Funktionsbeziehungen der Bl�cke auswerten
+   \end{itemize}
+\end{itemize}
+\textbf{Bsp.:} $PT_1$-Glied
+
+   \begin{figure}[H]
+     \centering
+     \includegraphics[width=.5\linewidth]{sysregel_bsb6}
+   \end{figure}
+   \begin{math}
+     \begin{array}{llll}
+       &h(t)&=&\frac{K}{T}\int_0^t{u(\tau)d\tau}\\
+     \rightarrow&\dot{h}(t)&=&\frac{K}{T}\cdot u(t)\\
+     &u(t)&=&q-\frac{1}{K}\cdot h(t)\\
+     \Rightarrow&\dot{h}(t)&=&\frac{K}{T}\cdot (q(t)-\frac{1}{K} \cdot{h}(t))\\
+     \Rightarrow&\frac{1}{T}\cdot h(t)+\dot{h}(t)&=&\frac{K}{T}\cdot q(t)\\
+     \Rightarrow&\underbrace{h(t)+T\cdot \dot{h}(t)}_{\text{DGL in }h(t)}&=&\underbrace{k\cdot q(t)}_{\text{Anregung}}\\
+
+     \rightarrow& \multicolumn{3}{l}{\text{homogene DGL, falls }q(t)=0 \text{ (Anregung}=0)}
+   \end{array}
+  \end{math}
+
+  \subsubsection{L�sung von Differentialgleichungen mit konstanten Koeffizienten}
+
+  \begin{bsp}[L�sung der DGL des $PT_1$-Gliedes]
+\end{bsp}
+Gegeben ist die Gleichung
+\begin{equation*}
+  T\cdot \dot{y}(t)+y(t)=k\cdot u(t)
+\end{equation*}
+mit $y(0)=y_0$ und beliebigem $u(t)$ f�r $t>0$.
+\begin{itemize}
+\item \textbf{1. Schritt:} characteristische Gleichung:\\
+  \begin{math}
+    \begin{array}{llllllll}
+      &T\cdot s +1&=&0\\
+      \rightarrow&s_1&=&-\frac{1}{T}\\
+      \Rightarrow&y_h(t)&=&C_1\cdot y_1(t)&=&c_1*e^{-\frac{t}{T}}&\text{(Formelsammlung)}
+    \end{array}
+  \end{math}
+\item \textbf{2. Schritt:} Variation der Konstanten\\
+  \begin{math}
+    \begin{array}{lllllllll}
+                       &y_p(t)&=&C_1(t)e^{-\frac{t}{T}}\\
+      \text{ableiten: }&\dot{y_p}(t)&=&\frac{-C_1(t)}{T}e^{-\frac{t}{T}}+\dot{C_1}(t)e^{-\frac{t}{T}}\\
+\multicolumn{4}{l}{\text{In die inhomogene DGL einsetzen:}}\\
+&K\cdot u(t)&=&T\cdot (-\frac{\cancel{c_1(t)}}{T}\cdot \cancel{e^{-\frac{t}{T}}}+\dot{C_1}(t)\cdot e^{-\frac{t}{T}})+\cancel{C_1(t)\cdot e^{-\frac{t}{T}}}\\
+&\dot{C_1}(t)&=&\frac{K}{T}\cdot e^{\frac{t}{T}}\cdot u(t)\\
+\text{Integrieren:}&C_1(t)&=&\int_0^t{\frac{K}{T}\cdot e^{\frac{\tau}{T}}\cdot u(\tau)d\tau}\\
+\Rightarrow&y_p(t)&=&[\int_0^t{\frac{K}{T}\cdot e^{\frac{\tau}{T}}\cdot u(\tau)d\tau}]\cdot e^{-\frac{t}{T}}\\
+&&=&\int_0^t{\frac{K}{T}\cdot e^{-\frac{t-\tau}{T}}\cdot u(\tau)d\tau}
+
+    \end{array}
+  \end{math}
+\item \textbf{3. Schritt:} Zusammenfassen zur Gesamtl�sung\\
+  \begin{math}
+    \begin{array}{lll}
+      y(t)&=&y_n(t)+y_p(t)\\
+          &=&c_1\cdot e^{-\frac{t}{T}}+\int_0^t{\frac{K}{T}\cdot e^{-\frac{t-\tau}{T}}\cdot u(\tau)d\tau}
+    \end{array}
+  \end{math}
+\item \textbf{4. Schritt:} $C_1$ bestimmen\\
+  \begin{math}
+    \begin{array}{llll}
+     &y(0)&=&C_1=y_0\\
+     \Rightarrow \text{L�sung:}&y(t)&=&\underbrace{y_0\cdot e^{-\frac{t}{T}}}_{1}+\underbrace{\int_0^t{\frac{K}{T}\cdot e^{-\frac{t-\tau}{T}}\cdot u(\tau)d\tau}}_{2}
+    \end{array}
+  \end{math}
+  \begin{itemize}
+  \item \textbf{Formelteil 1} ist die homogene L�sung. Sie ist nur vom Anfangswert $y_0$ abh�ngig. Man sagt: Sie beschreibt die \emph{freie Bewegung}
+  \item \textbf{Formelteil 2} ist die Partikul�rl�sung. Sie ist nur von der Eingangsfunktion $u(t)$ abh�ngig. Man sagt: Sie beschreibt die \emph{erzwungene Bewegung}
+  \end{itemize}
+\end{itemize}
+
+\subsection{�bertragungsverhalten}
+
+\subsubsection{Gewichtsfunktion und Faltung}
+
+Das �bertragungsverhalten von $u(t)$ zu $y(t)$ wird durch den Term
+\begin{equation*}
+  y(t)=\int_0^t{\frac{K}{T}\cdot e^{\frac{-t-\tau}{T}}\cdot u(\tau)d\tau}
+\end{equation*}
+definiert. Er beschreibt das �bertragungsverhalten bei verschwindenden Anfangsbedingungen ($y_0=0$). Mit der Funktion
+\begin{equation*}
+  g(t)=\frac{K}{T}\cdot e^{-\frac{t}{T}}
+\end{equation*}
+l�sst sich das Integral zu
+\begin{equation*}
+  y(t)=\underbrace{\int_0^t{g(t-\tau)\cdot u(\tau)d\tau}}_{Faltungsintegral}=g(t)*u(t)
+\end{equation*}
+vereinfachen. Das Zeichen $*$ wird als ``gefaltet mit'' ($g(t)$ gefaltet mit $u(t)$) gelesen. \\
+$g(t)$ nennt man \emph{Gewichtsfunktion}. Sie beschreibt das �bertragungsverhalten des Systems vollst�ndig!
+
+\begin{description}
+\item[Es gilt:] $g(t)*u(t)=u(t)*g(t)$
+\end{description}
+Die Gewichtsfunktion $g(t)$ gibt an, mit welchem Gewicht der Wert der Eingangsfunktion $u(t)$ von \emph{zur�ckliegenden} Zeitpunkten $(t-\tau)$ in den Wert der Ausgangsfunktion $y(t)$ zum \emph{aktuellen} Zeitpunkt $t$ eingeht.\\
+\textbf{BILDER FEHLEN!!!}
+
+\subsubsection{Eigenschaften}
+\textbf{Lineare} und \textbf{zeitinvariante} Systeme lassen sich durch die Gewichtsfunktion vollst�ndig beschreiben. (Entspricht der linearen DGL mit konstanten Koeffizienten)
+\begin{description}
+\item[Linearit�t:] Ein System ist linear, wenn...
+  \begin{itemize}
+  \item ...das Superpositionsprinzip: $y(t)=g(t)*[u_1(t)+u_2(t)]=g(t)*u_1(t)+ g(t)*u_2(t)$
+  \item ...das Verst�rkungsprinzip: $y(t)=g(t)*[\alpha \cdot u(t)]= \alpha \cdot[g(t)*u(t)]$
+  \end{itemize}
+gelten.
+\item[Zeitinvarianz:] Das System ist invariant gegen�ber Zeitverschiebungen: \\
+Aus $y(t)=g(t)*u(t)$ muss f�r eine beliebige Zeitverschiebung $T$ folgen, dass $y(t-T)=g(t)*u(t-T)$
+\item[Kausalit�t:] Das Ausgang $y(t)$ eines kausalen Systems h�ngt \emph{nur} vom Verlauf des Eingangs $u(t)$ f�r Zeiten $t\le t_0$ ab. Das System h�ngt also nur von vergangenen Eingangswerten ab. F�r $g(t)$ kausaler Systeme gilt also:
+  \begin{equation*}
+    g(t)=0 \text{ f�r } t<0
+  \end{equation*}
+\end{description}
+
+\end{document}
+
+
+ %ENDE DES ZU ERZEUGENDEN DOKUMENTES! AB HIER WIRD BEI DER DOKUMENTERSTELLUNG ALLES IGNORIERT!!
+
+%*******************************************************************
+%Es Folgen Copy and Paste Vorlagen für wichtige Anwendungen des	Alltages, wie verschiedene Tabellen etc.
+%*******************************************************************
+%Einfache Tabelle, die möglichst genau an der eingefügten Stelle im Text auftaucht
+
+\begin{table}[h!]%
+\begin{tabular}[h!]{|l||l|l|}
+\hline 
+Funktion & Menge & Gastyp  \\
+\hline %Doppelte Linie unter den �berschriften
+\hline Ätzgas & 15 sccm & $CF_4$ \\
+\hline Passivierungsgas & 35 sccm & $CHF_3$ \\
+\hline Physikalische Ätzkomponente & 50 sccm & $Ar$\\
+\hline 
+\end{tabular}
+\caption{Parameter der �tzung von SiO mit RIE} % Text unter der Tabelle. Nummerierung der Tabelle geschieht automatisch!
+\label{tab:RIE-para} % Auf diese Tabelle kann mit "`\ref{tab:RIE-para}"' im Text referenziert werden.
+\end{table}
+
+%*******************************************************************
+% Zwei zusammenhängende Tabellen nebeneinander, die möglichst an der eingefügten Stelle im Text auftauchen
+
+\begin{table}[h!]
+\subfloat[Verwendete Gase\label{tab:DRIE-gas}]{ % Kein "`\caption"' nötig, erstes Argument von Subfloat übernimmt diese Funktion!
+
+\begin{tabular}[b]{|l||l|l|} % [b] = "`Nach Möglichkeit die beiden Tabellenunterschriften auf einer Höhe halten!
+
+\hline Funktion & Menge & Gastyp\\
+\hline %Doppelte Linie unter den Übverschriften
+\hline Ätzgas & 130 sccm & $SF_6$\\
+\hline Zusatz zum Ätzgas & 12 sccm & $O_2$\\
+\hline Passivierungsgas & 85 scm & $C_4F_8$ \\
+\hline
+\end{tabular}
+}
+\subfloat[Daten der Ätzzyklen\label{tab:DRIE-cycle}]{% Auf diese Tabelle kann mit "`\ref{tab:DRIE-Cycle}"' im Text referenziert werden.
+\begin{tabular}[b]{|l|l|}
+\hline Anzahl Zyklen & 61 \\
+\hline
+\hline Dauer Ätzteilzyklus & 13 sec \\
+\hline Dauer Passivierungsteilzyklus & 7 sec \\
+\hline Dauer Gesamtzyklus & 20 sec \\
+\hline
+\end{tabular}
+}
+\caption{Parameter der Ätzung mit DRIE} % Dieser Caption erstreckt sich unter BEIDEN Tabellen und ist eine GESAMTÜBERSCHRIFT der Tabellenkombination! 
+\label{tab:DRIE-para}% Auf diese Tabellenkombination kann mit "`\ref{tab:DRIE-para}"' im Text referenziert werden.
+\end{table}
+
+%*******************************************************************
+%Bild neben einer Tabelle
+
+\begin{figure}[h]
+  \begin{minipage}{.45\linewidth} %Anfang Bildbereich, 0,45 % der Seitenbreite
+\includegraphics[height=5.5cm]{messpkt} % Hier Bild einf�gen
+\caption{Position der Messpunkte} %Bildunterschrift
+\label{pic:messpkt} %Referenzieren mittels "`\ref{pic:messpkt}"'
+ \end{minipage}% Ende des Bildbereiches
+ 
+ \begin{minipage}{.55\linewidth} %Anfang Tabellenbereich, 0,55 % der Seitenbreite
+\begin{tabular}[h]{|l|l|l|}
+\hline Anzahl Zyklen & 61 \\
+\hline
+\hline Dauer Ätzteilzyklus & 13 sec \\
+\hline Dauer Passivierungsteilzyklus & 7 sec \\
+\hline Dauer Gesamtzyklus & 20 sec \\
+\hline
+\end{tabular}
+\captionof{table}{Daten DRIE-Zyklus} % Tabellenunterschrift, mit \captionof{table} einzufügen, da wir uns in der "`figure"' Umgebung befinden!
+\label{tab:Cyc} %Referenzieren mit "`\ref{tab:Cyc}"'
+\end{minipage}% Ende des Tabellenbereiches
+\end{figure}
+
+%*******************************************************************
+%Tabelle mit einer Spalte, die mehrere Zeilen umfassen kann.
+
+\begin{table}  
+\begin{tabular}[h]{|c|l|l|}
+\hline Messpunkt & Strukturbreite & Ätztiefe\\
+\hline 
+\multirow{2}{*}{1} % Syntax: \multirow{ANZAHL ÜBERSPANNTER REIHEN}{*}{INHALT}
+& $100~ \micro m$ & $42,5~ \micro m$  \\  \cline{2-3} 
+& $20~ \micro m$  & $31,0~ \micro m$  \\  \hline
+\multirow{2}{*}{2} 
+& $100~ \micro m$ & $44,0~ \micro m$  \\  \cline{2-3} 
+& $20~ \micro m$  & $30,0~ \micro m$  \\  \hline
+\multirow{2}{*}{3}  
+& $100~ \micro m$ & $36,5~ \micro m$  \\  \cline{2-3} 
+& $20~ \micro m$  & $27,0~ \micro m$  \\  \hline
+\multirow{2}{*}{Durchschnitt} 
+& $100~ \micro m$ & $41,0~ \micro m$  \\  \cline{2-3} 
+& $20~ \micro m$  & $29,3~ \micro m$  \\  \hline
+\multirow{2}{*}{Standardabweichung} 
+& $100~ \micro m$ & $1,5~ \micro m$  \\  \cline{2-3} 
+& $20~ \micro m$  & $2,0~ \micro m$  \\  \hline
+\end{tabular}
+\caption{Gemessene Ätztiefen an 3 Punkten}
+\label{tab:struk} %Referenzieren mittels "`\ref{tab:struk}"'
+\end{table}
+
+%*******************************************************************
+%Literatur- und Quellenverzeichniss
+
+\begin{thebibliography}{sotief} % {sotief} bestimmt die Einrücktiefe der einzelnen Elemente (Breite des in den geschweiften Klammern stehender Text = Einrücktiefe!)
+
+\bibitem{mst}R. Zengerle, Mikrosystemtechnik: Technologien und Prozesse, Skript zur Vorlesung, Kapitel 6 (Ätzen) und Kapitel 7 (OMM) %Auf dieses Werk wird im Text über "`\ref{mst} referenziert
+
+\end{thebibliography}
+
+%*******************************************************************
