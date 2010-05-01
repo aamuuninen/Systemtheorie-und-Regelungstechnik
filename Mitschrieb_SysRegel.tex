@@ -24,6 +24,9 @@
 
 \usepackage{float} % Bei Gleitobjekten Position mit [H] festsetzen! (Sparsam verwenden!)
 %
+\usepackage{tikz}%Mindmaps etc.
+\usetikzlibrary{mindmap,backgrounds}
+
 % fix citations to be IEEE style
 \def\citepunct{], [}
 \def\citedash{]--[}
@@ -586,15 +589,68 @@ $\Rightarrow$ Die Gewichtsfunktion $g(t)$ kann auch als Impulsantwort interpreti
 
 \begin{bsp}[System aus 3 verbundenen Wassertanks]
 \end{bsp}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.9\linewidth]{sysregel_bsp_2,2}
+\end{figure}
+Volumenbilanz:
+\begin{align*}
+  \begin{array}{llll}
+    \text{Tank 1:}&\dot{h_1}&=&\frac{1}{A}(q_1-q_{1,2})\\
+    \text{Tank 2:}&\dot{h_2}&=&\frac{1}{A}(q_{1,2}-q_{2,3})\\
+    \text{Tank 3:}&\dot{h_3}&=&\frac{1}{A}(q_{2}+q_{2,3}-q_{ab})
+  \end{array}
+\end{align*}
+\begin{description}
+\item[Annahme:]Der Ausgleichsfluss zwischen den Tanks ist proportional zur Füllstandsdifferenz: \begin{center}  $q_{1,2}=c\cdot (h_1-h_2);q_{2,3}=c\cdot (h_2-h_3);q_{ab}=ch_3$ \end{center}
+\end{description}
+\begin{align*}
+  \begin{array}{llll}
+    \text{damit:}&\dot{h_1}&=&\frac{1}{A}(q_1-ch_1+ch_3)\\
+                 &\dot{h_2}&=&\frac{1}{A}(ch_1-2ch_2+ch_3)\\
+                 &\dot{h_3}&=&\frac{1}{A}(q_2+ch_2-2ch_3)
+  \end{array}
+\end{align*}
+Kennt man $h_1,h_2,h_3$, so ist der Zustand des Systems zum Zeitpunkt t vollständig bestimmt. $\Rightarrow h_1,h_2,h_3$ sind die Zustandsgrößen des Systems.\\
+Die Beschreibung eines Systems im Zustandsraum oder allgemein durch Gleichungen ist der Darstellung im Blockschaubild äquivalent. Je nach Anwendung wird die optimale Beschreibung gewählt. 
+%Mindmap ab hier!
+\begin{figure}[H]
+\centering
+                \begin{tikzpicture}
+                  \node {Physikalische Gleichungen}
+                    child[sibling distance=6cm] {node {BSB}
+                     child[level distance=0.5cm]{node {(Gleichungen$\rightarrow$ Blöcke)}edge from parent[draw=none]
+                      child[level distance=1.3cm]{node {eventuell Simulation}}
+                     }
+                  }       
+                    child[sibling distance=6cm] {node {1 DGL hoher Ordnung}
+                      child {node {Gewichtsfunktion}
+                        child[level distance=0.5cm]{node {Sprungfunktion}edge from parent[draw=none]
+                         child[level distance=1.5cm]{node{Laplace-Transformation}
+                           child[level distance=0.5cm]{node {(Bildbereich)}edge from parent[draw=none]}
+}
+}
+}
+}
+                    child[sibling distance=6cm] {node {n DGL 1 Ordnung}
+                      child {node {Zustandsraumdarstellung}
+                         child[level distance=0.5cm]{node {(Zeitbereich$\rightarrow$ Simulation)}edge from parent[draw=none]
+                        }
+}
+                          };
+                \end{tikzpicture}
+\end{figure}
+
+
 \end{document}
 
 
  %ENDE DES ZU ERZEUGENDEN DOKUMENTES! AB HIER WIRD BEI DER DOKUMENTERSTELLUNG ALLES IGNORIERT!!
 
 %*******************************************************************
-%Es Folgen Copy and Paste Vorlagen fÃ¼r wichtige Anwendungen des	Alltages, wie verschiedene Tabellen etc.
+%Es Folgen Copy and Paste Vorlagen für wichtige Anwendungen des	Alltages, wie verschiedene Tabellen etc.
 %*******************************************************************
-%Einfache Tabelle, die mÃ¶glichst genau an der eingefÃ¼gten Stelle im Text auftaucht
+%Einfache Tabelle, die möglichst genau an der eingefügten Stelle im Text auftaucht
 
 \begin{table}[h!]%
 \begin{tabular}[h!]{|l||l|l|}
