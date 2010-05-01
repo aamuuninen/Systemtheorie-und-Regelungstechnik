@@ -515,7 +515,7 @@ mit $y(0)=y_0$ und beliebigem $u(t)$ für $t>0$.
 
 Das Übertragungsverhalten von $u(t)$ zu $y(t)$ wird durch den Term
 \begin{equation*}
-  y(t)=\int_0^t{\frac{K}{T}\cdot e^{\frac{-t-\tau}{T}}\cdot u(\tau)d\tau}
+  y(t)=\int\limits_0^t{\frac{K}{T}\cdot e^{\frac{-t-\tau}{T}}\cdot u(\tau)d\tau}
 \end{equation*}
 definiert. Er beschreibt das Übertragungsverhalten bei verschwindenden Anfangsbedingungen ($y_0=0$). Mit der Funktion
 \begin{equation*}
@@ -523,7 +523,7 @@ definiert. Er beschreibt das Übertragungsverhalten bei verschwindenden Anfangsbe
 \end{equation*}
 lässt sich das Integral zu
 \begin{equation*}
-  y(t)=\underbrace{\int_0^t{g(t-\tau)\cdot u(\tau)d\tau}}_{Faltungsintegral}=g(t)*u(t)
+  y(t)=\underbrace{\int\limits_0^t{g(t-\tau)\cdot u(\tau)d\tau}}_{Faltungsintegral}=g(t)*u(t)
 \end{equation*}
 vereinfachen. Das Zeichen $*$ wird als ``gefaltet mit'' ($g(t)$ gefaltet mit $u(t)$) gelesen. \\
 $g(t)$ nennt man \emph{Gewichtsfunktion}. Sie beschreibt das Übertragungsverhalten des Systems vollständig!
@@ -551,6 +551,41 @@ Aus $y(t)=g(t)*u(t)$ muss für eine beliebige Zeitverschiebung $T$ folgen, dass $
   \end{equation*}
 \end{description}
 
+\subsubsection{Sprungsantwort und Impulsantwort}
+
+\begin{description}
+\item[Sprungantwort:] Auf den Systemeingang wird ein \emph{Einheitssprung} gegeben \textbf{evtl. Bild einfügen!}:
+  \begin{equation*}
+    u(t)=\sigma (t) =\begin{cases} 0 $ für $t<0\\1 $ für $ t \geq 0\end{cases}
+  \end{equation*}
+Die Antwort des Systems heißt \emph{Sprungantwort} und wird beschrieben durch
+\begin{equation*}
+  h(t):=y(t)
+\end{equation*}
+Mit dem Flächenintegral $y(t)=\int\limits_0^t{g(\tau)\cdot u(t-\tau)d\tau}$ vereinfacht sich das zu
+\begin{align*}
+  \begin{array}{lll}
+    h(t)&=&\int\limits_0^t{g(\tau)\cdot \underbrace{\sigma (t-\tau)}_{=1}d\tau}\\
+    h(t)&=&\int\limits_0^t{g(\tau)d\tau}  
+  \end{array}
+\end{align*}
+Die Sprungantwort, genau wie die Gewichtsfunktion, characterisiert das dynamische System vollständig!
+\item[Impulsantwort: ] Die Impulsfunktion $\delta (t)$ ist die formale Ableitung des Einheitssprungs.
+  \begin{equation*}
+    \delta (t)=\frac{d}{dt}\sigma (t) \Leftrightarrow \int\limits_0^t{\delta(\tau)d\tau =\sigma(t)}
+  \end{equation*}
+Für die Impulsantwort gilt damit:
+\begin{equation*}
+  \int\limits_0^t{g(\tau)\cdot u(t-\tau)d\tau} =\int\limits_0^t{g(\tau)\cdot \delta(t-\tau)d\tau }=g(t)
+\end{equation*}
+$\Rightarrow$ Die Gewichtsfunktion $g(t)$ kann auch als Impulsantwort interpretiert werden.
+
+\end{description}
+
+\subsection{Darstellung im Zustandsraum}
+
+\begin{bsp}[System aus 3 verbundenen Wassertanks]
+\end{bsp}
 \end{document}
 
 
