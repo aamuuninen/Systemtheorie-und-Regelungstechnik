@@ -620,14 +620,60 @@ Kennt man $h_1,h_2,h_3$, so ist der Zustand des Systems zum Zeitpunkt t vollstä
     \end{figure}
   \end{minipage}
   \begin{minipage}{0.5\linewidth}
-    \[x(t): \text{Zustandsvektor}\\\]
-    \[x(t)=  \left( \begin{array}{c}
+    \[\vec{x}(t): \text{Zustandsvektor}\\\]
+    \[\vec{x}(t)=  \begin{pmatrix}
             h_1(t) \\
             h_2(t) \\
-            h_3(t) \end{array} \right)\] 
+            h_3(t) \end{pmatrix} \] 
   \end{minipage}
 \end{figure}
+Das System wird durch $q_1(t)$ und $q_2(t)$ angeregt, diese sind die \emph{Eingangsgrößen}. Aus ihnen lässt sich der sogenannte \emph{Eingangsvektor} bestimmen:
+\begin{equation*}
+  \vec{u}(t)=\begin{pmatrix}
+                            q_1(t)\\
+                            q_2(t)
+             \end{pmatrix}
+\end{equation*}
 
+\subsubsection*{Verallgemeinerung}
+
+Das Systrem lässt sich durch $n$ Zustände beschreiben:
+\[
+\vec{x}=
+\begin{pmatrix}
+x_1\\
+x_2\\
+\vdots\\
+x_n
+\end{pmatrix}
+\]
+Das Systrem besitzt $m$ Eingänge:
+\[
+\vec{u}=
+\begin{pmatrix}
+u_1\\
+u_2\\
+\vdots\\
+u_m
+\end{pmatrix}
+\]
+Dieses System lässt sich durch $n$ DGL 1 Ordnung beschreiben:
+\[
+\left.
+\begin{array}{cc}
+x_1=f_1(\vec{x},\vec{u})\\
+\vdots\\
+x_n=f_n(\vec{x},\vec{u})
+\end{array}
+\right\}
+\begin{array}{ll}
+\vec{x}(t)=\vec{f}(\vec{x}(t),\vec{u}(t))\\
+\text{Zustandsdifferentialgleichung}
+\end{array}
+\]
+Durch Messung des Systems wird aus dem aktuellen Zustand $\vec{x}(t)$ und dem Eingang $\vec{u}(t)$ der Ausgangsvektor $\vec{y}(t)$ bestimmt.\\
+\textbf{Hier fehlt noch ein Bildchen und 2 Zeilen Mathe...}
+Da man bei komplexen Systemen mit mehreren Ein- und Ausgängen für jedes Eingang/Ausgangpaar eine eigene Gewichtsfunktion aufstellen müsste, bietet sich bei der Simulation solcher Systeme die Zustandsraumdarstellung an.\\  
 Die Beschreibung eines Systems im Zustandsraum oder allgemein durch Gleichungen ist der Darstellung im Blockschaubild äquivalent. Je nach Anwendung wird die optimale Beschreibung gewählt. 
 %Mindmap ab hier!
 \begin{figure}[H]
