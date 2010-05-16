@@ -535,8 +535,16 @@ $g(t)$ nennt man \emph{Gewichtsfunktion}. Sie beschreibt das Übertragungsverhal
 \item[Es gilt:] $g(t)*u(t)=u(t)*g(t)$
 \end{description}
 Die Gewichtsfunktion $g(t)$ gibt an, mit welchem Gewicht der Wert der Eingangsfunktion $u(t)$ von \emph{zurückliegenden} Zeitpunkten $(t-\tau)$ in den Wert der Ausgangsfunktion $y(t)$ zum \emph{aktuellen} Zeitpunkt $t$ eingeht.\\
-\textbf{BILDER FEHLEN!!!}
-
+\begin{figure}[H]
+  \centering
+  \includegraphics[height=5cm]{sysregel_gewfkt_1}
+\end{figure}
+Der Ausgang hängt nur vom aktuellen Eingang ab.
+\begin{figure}[H]
+  \centering
+  \includegraphics[height=5cm]{sysregel_gewfkt_2}
+\end{figure}
+In diesem Fall hingegen ist der Ausgang auch von vergangenen Werten abhängig.
 \subsubsection{Eigenschaften}
 \textbf{Lineare} und \textbf{zeitinvariante} Systeme lassen sich durch die Gewichtsfunktion vollständig beschreiben. (Entspricht der linearen DGL mit konstanten Koeffizienten)
 \begin{description}
@@ -557,7 +565,12 @@ Aus $y(t)=g(t)*u(t)$ muss für eine beliebige Zeitverschiebung $T$ folgen, dass 
 \subsubsection{Sprungsantwort und Impulsantwort}
 
 \begin{description}
-\item[Sprungantwort:] Auf den Systemeingang wird ein \emph{Einheitssprung} gegeben \textbf{evtl. Bild einfügen!}:
+\item[Sprungantwort:] Auf den Systemeingang wird ein \emph{Einheitssprung} gegeben
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=6cm]{sysregel_einheitssprung}
+  \end{figure}
   \begin{equation*}
     u(t)=\sigma (t) =\begin{cases} 0 $ für $t<0\\1 $ für $ t \geq 0\end{cases}
   \end{equation*}
@@ -793,6 +806,75 @@ Diese Gleichung gilt nur bei linearen Systemen und ist außerdem eine beliebte \
     y(t)&=&\mathbf{C}\cdot \vec{x}(t)&+&\mathbf{B}\cdot\vec{u}(t)&\text{Ausgangsgleichung}
   \end{array}
 \end{align*}
+
+\subsubsection{Aufstellen der Zustandsgleichung aus BSB und DGL}
+
+\paragraph{aus dem Blockschaubild}
+\begin{description}
+\item[Idee:] Jedes I-Glied (und $PT_1$) speichert einen Zustand. Um die Zustandsgleichung aufzustellen muss also wie folgt vorgegangen werden:
+  \begin{enumerate}
+  \item $PT_2$-Glieder zerlegen
+  \item Alle Ausgänge von I- und $PT_1$-Gliedern als Zustände einführen (Buchstaben im BSB zuweisen!)
+  \item Entgegen der Signalflussrichtung die Gleichungen bestimmen
+  \end{enumerate}
+\end{description}
+\begin{bsp}
+\end{bsp}
+\begin{figure}[H]
+  \includegraphics[height=5cm]{sysregel_bsp_2-3}
+\end{figure}
+
+\begin{align*}
+  \begin{array}{llllllll}
+    y(t)&=&x_1(t)+x_2(t)\\
+    x_2(t)&=&\int{x_1(\tau)d\tau}&\Rightarrow&\dot{x_2}(t)&=&x_1(t)\\
+    x_1(t)&=&\int{u(\tau)-x_2(\tau)d\tau}&\Rightarrow&\dot{x_1}(t)&=&&-x_2(t)+u(t)
+  \end{array}
+\end{align*}
+\textbf{Vektoriell:}
+\begin{align*}
+  \begin{array}{lllll}
+    \vec{\dot{x}}(t)&=&
+    \begin{pmatrix}
+      \dot{x_1}(t)\\
+      \dot{x_2}(t)
+    \end{pmatrix}
+=
+\begin{pmatrix}
+  0&-1\\
+  1&0
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+  x_1(t)\\
+  x_2(t)
+\end{pmatrix}
++
+\begin{pmatrix}
+  1\\0
+\end{pmatrix}
+u(t)\\[1cm]
+\vec{\dot{x}}(t)&=&
+\underbrace{
+\begin{pmatrix}
+  0&-1\\
+  1&0
+\end{pmatrix}}_{\mathbf{A}}
+\vec{x}(t)+
+\underbrace{
+\begin{pmatrix}
+1\\0  
+\end{pmatrix}}_{\mathbf{B}}u(t)\\[1cm]
+\vec{y}(t)&=& \underbrace{
+  \begin{pmatrix}
+    1&1
+  \end{pmatrix}}_{\mathbf{C}}\vec{x}(t)\\
+\mathbf{D}&=& \mathbf{0}
+  \end{array}
+\end{align*}
+
+\paragraph{Aus der Differentialgleichung}
+
 
 \end{document}
 
