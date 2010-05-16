@@ -722,8 +722,77 @@ Die Beschreibung eines Systems im Zustandsraum oder allgemein durch Gleichungen 
   \text{Anfangswert } \vec{x}(0)=\vec{x_0}\\
 \end{align*}
 \textbf{gesucht:} numerische Näherung ${\tilde{x}}$ für die Lösung der DGL auf einem Zeitintervall $[0,t_{max}]$\\
-\textbf{Idee: } Approximation von $\vec{\dot{x}}(t)$ durch den Differenzenquotienten
+\textbf{Idee: } Approximation von $\vec{\dot{x}}(t)$ durch den Differenzenquotienten:
+\begin{equation*}
+  \vec{\dot{x}}\approx \frac{\vec{x}(t+h)-\vec{x}(t)}{h} \text{ mit Zeitschritt }h
+\end{equation*}
+\textbf{Einsetzen in $(*):$ }
+\begin{align*}
+  \begin{array}{lll}
+   \frac{\vec{x}(t+h)-\vec{x}(t)}{h} &\approx& \vec{f}(\vec{x}(t),\vec{u}(t)) \\
+   \Rightarrow \vec{x}(t)+h \cdot \vec{f}(\vec{x}(t),\vec{u}(t)) &\approx&x(t+h)
+   \end{array}
+\end{align*}
+mit festen Zeitschritten $t_i=i\cdot h$
+\begin{equation*}
+  \underbrace{\vec{\tilde{x}}(t_{i+1})}_{\text{neuer Zustand}}=\underbrace{\vec{\tilde{x}}(t_i)}_{\text{alter Zustand}}+h \cdot \vec{f}(\vec{x}(t_i),\vec{u}(t_i))
+\end{equation*}
+Diese Gleichung lässt sich mithilfe des \emph{Euler-Verfahrens} lösen.
 
+\subsubsection{Lineare Systeme}
+
+\textbf{Fortsetzung Bsp 2.2:}\\
+Sortieren der Zustände und der Eingänge:
+\begin{align*}
+  \begin{array}{lllllllllllll}
+    \dot{h_1}(t)&=&-&\frac{C}{A}h_1(t)&+&\frac{C}{A}h_2(t)&&&+&\frac{1}{A}q_1(t)\\
+    \dot{h_2}(t)&=&&\frac{C}{A}h_1(t)&-&\frac{2C}{A}h_2(t)&+&\frac{C}{A}h_3(t)\\
+    \dot{h_3}(t)&=&&&&\frac{C}{A}h_2(t)&-&\frac{2C}{A}h_3(t)&&&+&\frac{1}{A}q_2(t)
+  \end{array}
+\end{align*}
+Die obige Gleichung lässt sich auch in Vektoren und Matrizen ausdrücken:
+\begin{align*}\underbrace{
+  \begin{pmatrix}
+    \dot{h_1}\\
+    \dot{h_2}\\
+    \dot{h_3}
+  \end{pmatrix}}_{\vec{\dot{x}}(t)}
+=
+\underbrace{
+\begin{pmatrix}
+  -\frac{C}{A}&+\frac{C}{A}&0\\
+  \frac{C}{A}&-\frac{2C}{A}&\frac{C}{A}\\
+  0&\frac{C}{A}&-\frac{2C}{A}
+\end{pmatrix}}_{\text{Systemmatrix }\mathbf{A}}
+\cdot
+\underbrace{
+\begin{pmatrix}
+h_1(t)\\
+h_2(t)\\
+h_3(t)  
+\end{pmatrix}}_{\parbox{1cm}{\scriptsize Zustands\-vektor~$\vec{x}(t)$}}
++
+\underbrace{
+\begin{pmatrix}
+\frac{1}{A}&0\\
+0&0\\
+0&\frac{1}{A}  
+\end{pmatrix}}_{\parbox{1cm}{\scriptsize Eingangs\-matrix~$\mathbf{B}$}}
+\cdot
+\underbrace{
+  \begin{pmatrix}
+    q_1(t)\\
+    q_2(t)\\
+~
+  \end{pmatrix}}_{\parbox{1cm}{\scriptsize Eingangsvektor~$\vec{u}$}}
+\end{align*}
+Diese Gleichung gilt nur bei linearen Systemen und ist außerdem eine beliebte \textbf{Klausuraufgabe!} Allgemein gilt:
+\begin{align*}
+  \begin{array}{lllllll}
+    \vec{x}(t)&=&\mathbf{A}\cdot\vec{x}(t)&+&\mathbf{B}\cdot\vec{u}(t)&\text{Zustandsdifferentialgleichung}\\
+    y(t)&=&\mathbf{C}\cdot \vec{x}(t)&+&\mathbf{B}\cdot\vec{u}(t)&\text{Ausgangsgleichung}
+  \end{array}
+\end{align*}
 
 \end{document}
 
@@ -736,7 +805,184 @@ Die Beschreibung eines Systems im Zustandsraum oder allgemein durch Gleichungen 
 %Einfache Tabelle, die möglichst genau an der eingefügten Stelle im Text auftaucht
 
 \begin{table}[h!]%
-\begin{tabular}[h!]{|l||l|l|}
+\begin{tabular}[h!]{|l||l|l|}stems heißt \emph{Sprungantwort} und wird beschrieben durch
+\begin{equation*}
+  h(t):=y(t)
+\end{equation*}
+Mit dem Flächenintegral $y(t)=\int\limits_0^t{g(\tau)\cdot u(t-\tau)d\tau}$ vereinfacht sich das zu
+\begin{align*}
+  \begin{array}{lll}
+    h(t)&=&\int\limits_0^t{g(\tau)\cdot \underbrace{\sigma (t-\tau)}_{=1}d\tau}\\
+    h(t)&=&\int\limits_0^t{g(\tau)d\tau}  
+  \end{array}
+\end{align*}
+Die Sprungantwort, genau wie die Gewichtsfunktion, characterisiert das dynamische System vollständig!
+\item[Impulsantwort: ] Die Impulsfunktion $\delta (t)$ ist die formale Ableitung des Einheitssprungs.
+  \begin{equation*}
+    \delta (t)=\frac{d}{dt}\sigma (t) \Leftrightarrow \int\limits_0^t{\delta(\tau)d\tau =\sigma(t)}
+  \end{equation*}
+Für die Impulsantwort gilt damit:
+\begin{equation*}
+  \int\limits_0^t{g(\tau)\cdot u(t-\tau)d\tau} =\int\limits_0^t{g(\tau)\cdot \delta(t-\tau)d\tau }=g(t)
+\end{equation*}
+$\Rightarrow$ Die Gewichtsfunktion $g(t)$ kann auch als Impulsantwort interpretiert werden.
+
+\end{description}
+
+\subsection{Darstellung im Zustandsraum}
+
+\begin{bsp}[System aus 3 verbundenen Wassertanks]
+\end{bsp}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.9\linewidth]{sysregel_bsp_2,2}
+\end{figure}
+Volumenbilanz:
+\begin{align*}
+  \begin{array}{llll}
+    \text{Tank 1:}&\dot{h_1}&=&\frac{1}{A}(q_1-q_{1,2})\\
+    \text{Tank 2:}&\dot{h_2}&=&\frac{1}{A}(q_{1,2}-q_{2,3})\\
+    \text{Tank 3:}&\dot{h_3}&=&\frac{1}{A}(q_{2}+q_{2,3}-q_{ab})
+  \end{array}
+\end{align*}
+\begin{description}
+\item[Annahme:]Der Ausgleichsfluss zwischen den Tanks ist proportional zur Füllstandsdifferenz: \begin{center}  $q_{1,2}=c\cdot (h_1-h_2);q_{2,3}=c\cdot (h_2-h_3);q_{ab}=ch_3$ \end{center}
+\end{description}
+\begin{align*}
+  \begin{array}{llll}
+    \text{damit:}&\dot{h_1}&=&\frac{1}{A}(q_1-ch_1+ch_3)\\
+                 &\dot{h_2}&=&\frac{1}{A}(ch_1-2ch_2+ch_3)\\
+                 &\dot{h_3}&=&\frac{1}{A}(q_2+ch_2-2ch_3)
+  \end{array}
+\end{align*}
+Kennt man $h_1,h_2,h_3$, so ist der Zustand des Systems zum Zeitpunkt t vollständig bestimmt. $\Rightarrow h_1,h_2,h_3$ sind die Zustandsgrößen des Systems.\\
+\textbf{Geometrische Deutung:} $h_1,h_2,h_3$ spannen einen dreidimensionalen Vektorraum auf, den sogenannten \emph{Zustandsraum}.\\
+\begin{figure}[H]
+  \begin{minipage}{0.5\linewidth}
+    \begin{figure}[H]
+      \includegraphics[width=0.9\linewidth]{sysregel_zustandsraum}
+    \end{figure}
+  \end{minipage}
+  \begin{minipage}{0.5\linewidth}
+    \[\vec{x}(t): \text{Zustandsvektor}\\\]
+    \[\vec{x}(t)=  \begin{pmatrix}
+            h_1(t) \\
+            h_2(t) \\
+            h_3(t) \end{pmatrix} \] 
+  \end{minipage}
+\end{figure}
+Das System wird durch $q_1(t)$ und $q_2(t)$ angeregt, diese sind die \emph{Eingangsgrößen}. Aus ihnen lässt sich der sogenannte \emph{Eingangsvektor} bestimmen:
+\begin{equation*}
+  \vec{u}(t)=\begin{pmatrix}
+                            q_1(t)\\
+                            q_2(t)
+             \end{pmatrix}
+\end{equation*}
+
+\subsubsection*{Verallgemeinerung}
+
+Das Systrem lässt sich durch $n$ Zustände beschreiben:
+\[
+\vec{x}=
+\begin{pmatrix}
+x_1\\
+x_2\\
+\vdots\\
+x_n
+\end{pmatrix}
+\]
+Das Systrem besitzt $m$ Eingänge:
+\[
+\vec{u}=
+\begin{pmatrix}
+u_1\\
+u_2\\
+\vdots\\
+u_m
+\end{pmatrix}
+\]
+Dieses System lässt sich durch $n$ DGL 1 Ordnung beschreiben:
+\[
+\left.
+\begin{array}{cc}
+x_1=f_1(\vec{x},\vec{u})\\
+\vdots\\
+x_n=f_n(\vec{x},\vec{u})
+\end{array}
+\right\}
+\begin{array}{ll}
+\vec{x}(t)=\vec{f}(\vec{x}(t),\vec{u}(t))\\
+\text{Zustandsdifferentialgleichung}
+\end{array}
+\]
+Durch Messung des Systems wird aus dem aktuellen Zustand $\vec{x}(t)$ und dem Eingang $\vec{u}(t)$ der Ausgangsvektor $\vec{y}(t)$ bestimmt. Die daraus resultierende Gleichung
+\begin{equation*}
+  \vec{y}(t)=g(\vec{x}(t),\vec{u}(t))
+\end{equation*}
+heißt \emph{Ausgangsgleichung}. $\vec{y}(t)$ ist gegeben durch 
+\begin{equation*}
+  \vec{y}(t)=
+\begin{pmatrix}
+y_1\\
+\vdots\\
+y_p
+\end{pmatrix}
+\end{equation*}
+Da man bei komplexen Systemen mit mehreren Ein- und Ausgängen für jedes Eingang/Ausgangpaar eine eigene Gewichtsfunktion aufstellen müsste, bietet sich bei der Simulation solcher Systeme die Zustandsraumdarstellung an.\\  
+Die Beschreibung eines Systems im Zustandsraum oder allgemein durch Gleichungen ist der Darstellung im Blockschaubild äquivalent. Je nach Anwendung wird die optimale Beschreibung gewählt. 
+%Mindmap ab hier!
+\begin{figure}[H]
+\centering
+                \begin{tikzpicture}
+                  \node {Physikalische Gleichungen}
+                    child[sibling distance=6cm] {node {BSB}
+                     child[level distance=0.5cm]{node {(Gleichungen$\rightarrow$ Blöcke)}edge from parent[draw=none]
+                      child[level distance=1.3cm]{node {eventuell Simulation}}
+                     }
+                  }       
+                    child[sibling distance=6cm] {node {1 DGL hoher Ordnung}
+                      child {node {Gewichtsfunktion}
+                        child[level distance=0.5cm]{node {Sprungfunktion}edge from parent[draw=none]
+                         child[level distance=1.5cm]{node{Laplace-Transformation}
+                           child[level distance=0.5cm]{node {(Bildbereich)}edge from parent[draw=none]}
+}
+}
+}
+}
+                    child[sibling distance=6cm] {node {n DGL 1 Ordnung}
+                      child {node {Zustandsraumdarstellung}
+                         child[level distance=0.5cm]{node {(Zeitbereich$\rightarrow$ Simulation)}edge from parent[draw=none]
+                        }
+}
+                          };
+                \end{tikzpicture}
+\end{figure}
+
+\subsubsection{Numerische Simulation}
+
+\textbf{gegeben:}
+\begin{align*}
+  \vec{\dot{x}}(t)=\vec{f}(\vec{x}(t),\vec{u}(t))(*)\\
+  \text{Anfangswert } \vec{x}(0)=\vec{x_0}\\
+\end{align*}
+\textbf{gesucht:} numerische Näherung ${\tilde{x}}$ für die Lösung der DGL auf einem Zeitintervall $[0,t_{max}]$\\
+\textbf{Idee: } Approximation von $\vec{\dot{x}}(t)$ durch den Differenzenquotienten:
+\begin{equation*}
+  \vec{\dot{x}}\approx \frac{\vec{x}(t+h)-\vec{x}(t)}{h} \text{ mit Zeitschritt }h
+\end{equation*}
+\textbf{Einsetzen in $(*):$ }
+\begin{align*}
+  \begin{array}{lll}
+   \frac{\vec{x}(t+h)-\vec{x}(t)}{h} &\approx& \vec{f}(\vec{x}(t),\vec{u}(t)) \\
+   \Rightarrow \vec{x}(t)+h \cdot \vec{f}(\vec{x}(t),\vec{u}(t)) &\approx&x(t+h)
+   \end{array}
+\end{align*}
+mit festen Zeitschritten $t_i=i\cdot h$
+\begin{equation*}
+  \underbraces{\vec{\tilde{x}}(t_{i+1})}_{\text{neuer Zustand}} =  \underbraces{\vec{\tilde{x}}(t_{i})}_{\text{neuer Zustand}} +h \cdot f(x(t),u(t))
+\end{equation*}
+
+\end{document}
 \hline 
 Funktion & Menge & Gastyp  \\
 \hline %Doppelte Linie unter den Überschriften
