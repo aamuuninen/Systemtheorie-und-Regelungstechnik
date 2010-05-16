@@ -671,8 +671,19 @@ x_n=f_n(\vec{x},\vec{u})
 \text{Zustandsdifferentialgleichung}
 \end{array}
 \]
-Durch Messung des Systems wird aus dem aktuellen Zustand $\vec{x}(t)$ und dem Eingang $\vec{u}(t)$ der Ausgangsvektor $\vec{y}(t)$ bestimmt.\\
-\textbf{Hier fehlt noch ein Bildchen und 2 Zeilen Mathe...}
+Durch Messung des Systems wird aus dem aktuellen Zustand $\vec{x}(t)$ und dem Eingang $\vec{u}(t)$ der Ausgangsvektor $\vec{y}(t)$ bestimmt. Die daraus resultierende Gleichung
+\begin{equation*}
+  \vec{y}(t)=g(\vec{x}(t),\vec{u}(t))
+\end{equation*}
+heißt \emph{Ausgangsgleichung}. $\vec{y}(t)$ ist gegeben durch 
+\begin{equation*}
+  \vec{y}(t)=
+\begin{pmatrix}
+y_1\\
+\vdots\\
+y_p
+\end{pmatrix}
+\end{equation*}
 Da man bei komplexen Systemen mit mehreren Ein- und Ausgängen für jedes Eingang/Ausgangpaar eine eigene Gewichtsfunktion aufstellen müsste, bietet sich bei der Simulation solcher Systeme die Zustandsraumdarstellung an.\\  
 Die Beschreibung eines Systems im Zustandsraum oder allgemein durch Gleichungen ist der Darstellung im Blockschaubild äquivalent. Je nach Anwendung wird die optimale Beschreibung gewählt. 
 %Mindmap ab hier!
@@ -702,6 +713,16 @@ Die Beschreibung eines Systems im Zustandsraum oder allgemein durch Gleichungen 
                           };
                 \end{tikzpicture}
 \end{figure}
+
+\subsubsection{Numerische Simulation}
+
+\textbf{gegeben:}
+\begin{align*}
+  \vec{\dot{x}}(t)=\vec{f}(\vec{x}(t),\vec{u}(t))(*)\\
+  \text{Anfangswert } \vec{x}(0)=\vec{x_0}\\
+\end{align*}
+\textbf{gesucht:} numerische Näherung ${\tilde{x}}$ für die Lösung der DGL auf einem Zeitintervall $[0,t_{max}]$\\
+\textbf{Idee: } Approximation von $\vec{\dot{x}}(t)$ durch den Differenzenquotienten
 
 
 \end{document}
