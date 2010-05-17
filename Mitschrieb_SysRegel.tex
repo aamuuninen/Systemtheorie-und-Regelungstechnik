@@ -921,6 +921,90 @@ Aus $(**)$ folgt damit durch Integrieren von $x_n(t)$
 \vec{x}(t)
 \end{equation*}
 
+\section{Systembeschreibung im Bildbereich}
+
+\subsection{Laplace-Transformation}
+
+\subsubsection{Grundlagen}
+
+\begin{description}
+\item[Idee:] Die Lösung einer algebraischen Gleichung ist einfacher als Lösung einer DGL. Allerdings ist eine Transformation notwendig.
+  \begin{align*}
+    \begin{array}{lllll}
+    Y(s)&=&\mathcal{L}\{y(t)\} &=& \int\limits_0^\infty{y(t)e^{-st}dt}\\
+    Y(s)&=&\mathcal{L}^{-1}\{Y(s)\} &=&\frac{1}{2\pi j} \int\limits_{c-j\infty}^{c+j\infty}{Y(s)e^{ts}ds}
+    \end{array}
+  \end{align*}
+\end{description}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.9\linewidth]{sysregel_laplace}
+\end{figure}
+\textbf{Vorraussetzung}
+  \begin{enumerate}
+  \item Es muss $y(t)=0$ für $t<0$ sein!\\
+        $y(t)$ kann Gewichtsfunktion eines Systems sein $\Rightarrow$ System ist kausal!\\
+Schreibweise am besten: $y(t)\cdot \sigma (t)$
+\item Das uneigentliche Integral muss konvergieren.
+  \end{enumerate}
+Der ``Umweg'' wird durch tabellierte Korrespondenzen attraktiv. Im Allgemeinen ist die Rücktransformation am aufwendigsten, da die Lösung aufgespalten und in Teilen transformiert werden muss.
+
+\subsubsection{Lösung einer DGL}
+\begin{bsp}[Sprungantwort eines $PT_1$-Gliedes]
+\end{bsp}
+\textbf{DGL:}
+\begin{equation*}
+  T\dot{y}(t)+y(t)=ku(t)
+\end{equation*}
+mit $y(0)=y_0$ und $u(t)=u_0\sigma (t)$
+\begin{description}
+\item[Schritt 1: ] Regel 1 und Regel 5
+  \begin{equation*}
+    T\cdot (sY(s)-y_0))+Y(s)=k\cdot U(s)
+  \end{equation*}
+$\Rightarrow$ Eingangssignal: Regel 1, Korr. 2
+
+\begin{equation*}
+U(s)=u_0 \cdot \frac{1}{s}
+\end{equation*}
+
+\item[Schritt 2:] Nach $Y(s)$ auflösen
+  \begin{align*}
+    \begin{array}{llllll}
+      Y(s)(sT+1)&=&kU(s)+Ty_0\\
+      Y(s)&=& \frac{T}{sT+1}y_0+\frac{k}{sT+1}u(s)\\
+      \text{mit } U(s)&=&u_0\cdot \frac{1}{s}\\
+      Y(s)&=&\underbrace{\frac{T}{sT+1}y_0}_{Y_1(s)}+\underbrace{\frac{k}{sT+1}\cdot \frac{u_0}{s}}_{Y_2(s)}
+    \end{array}
+  \end{align*}
+\item[Schritt 3:] Rücktransformation
+  \begin{equation*}
+    Y_1(s)=\frac{1}{s+\frac{1}{T}}y_0 
+  \end{equation*}
+mit Korr. 6:
+\begin{equation*}
+  Y_1(t)=e^{-\frac{1}{T}t}\cdot y_0 \cdot \underbrace{\sigma (t)}_{=0 \text{ für }t<0} 
+\end{equation*}
+Partialbruchzerlegung für $Y_2(s)$:
+\begin{equation*}
+\frac{k u_0}{(sT+1)s}=\frac{A}{sT+1}+\frac{B}{s}
+\end{equation*}
+\begin{equation*}
+  \Rightarrow k\cdot u_0=A\cdot s+B(sT+1)
+\end{equation*}
+\end{description}
+
+\textbf{HIER FEHLT WAS!!!!}
+
+\subsection{Übertragungsfunktion ÜF}
+
+aus Bsp 3.1 :
+\begin{equation*}
+  Y(s)= \underbrace{\frac{T}{sT+1}y_0}_{\text{nur vom Anfangswert abh. Freie Bewegung}} + \underbrace{\frac{k}{sT+1}u(s)}_{\text{vom Eingang U(s) abh. Erzwungene Bew.}}
+\end{equation*}
+
+\textbf{HIER AUCH!!!!!}
+
 \end{document}
 
 
