@@ -932,19 +932,19 @@ Aus $(**)$ folgt damit durch Integrieren von $x_n(t)$
   \begin{align*}
     \begin{array}{lllll}
     Y(s)&=&\mathcal{L}\{y(t)\} &=& \int\limits_0^\infty{y(t)e^{-st}dt}\\
-    Y(s)&=&\mathcal{L}^{-1}\{Y(s)\} &=&\frac{1}{2\pi j} \int\limits_{c-j\infty}^{c+j\infty}{Y(s)e^{ts}ds}
+    y(s)&=&\mathcal{L}^{-1}\{Y(s)\} &=&\frac{1}{2\pi j} \int\limits_{c-j\infty}^{c+j\infty}{Y(s)e^{ts}ds}
     \end{array}
   \end{align*}
 \end{description}
 \begin{figure}[H]
   \centering
-  \includegraphics[width=.9\linewidth]{sysregel_laplace}
+  \includegraphics[width=\linewidth]{sysregel_laplace}
 \end{figure}
 \textbf{Vorraussetzung}
   \begin{enumerate}
-  \item Es muss $y(t)=0$ für $t<0$ sein!\\
-        $y(t)$ kann Gewichtsfunktion eines Systems sein $\Rightarrow$ System ist kausal!\\
-Schreibweise am besten: $y(t)\cdot \sigma (t)$
+  \item Es muss $y(t)=0$ für $t<0$ sein! Ansonsten stimmt das Modell nicht mit der Realität überein, das System würde antworten, \emph{bevor} ein Eingang angelegt ist. Schreibweise am besten: $y(t)\cdot \sigma (t)$\\
+$y(t)$ kann Gewichtsfunktion eines Systems sein $\Rightarrow$ System ist kausal!
+
 \item Das uneigentliche Integral muss konvergieren.
   \end{enumerate}
 Der ``Umweg'' wird durch tabellierte Korrespondenzen attraktiv. Im Allgemeinen ist die Rücktransformation am aufwendigsten, da die Lösung aufgespalten und in Teilen transformiert werden muss.
@@ -1000,10 +1000,38 @@ Partialbruchzerlegung für $Y_2(s)$:
 
 aus Bsp 3.1 :
 \begin{equation*}
-  Y(s)= \underbrace{\frac{T}{sT+1}y_0}_{\text{nur vom Anfangswert abh. Freie Bewegung}} + \underbrace{\frac{k}{sT+1}u(s)}_{\text{vom Eingang U(s) abh. Erzwungene Bew.}}
+  Y(s)= \underbrace{\frac{T}{sT+1}y_0}_{\text{nur vom Anfangswert abh. Freie Bewegung}} + \underbrace{\frac{k}{sT+1}u(s)}_{\text{vom Eingang U(s) abh. Erzwungene Bew.}:=G(s)}
 \end{equation*}
+$G(s)$ heißt \emph{Übertragungsfunktion}. Sie beschreibt dsa System vollständig. Das Übertragungsverhalten bei verschwindendem Anfangswert, also $y(s)=G(s)\cdot u(s)$ entspricht $y(t)=g(t)*u(t)$ im Zeitbereich. Es gilt also $G(s)=\mathcal{L}\{g(t)\}$. (Regel 9)\\
+Im Bildbereich können Systeme sehr einfach verknüpft werden, z.B. durch Serienschaltungen:
+\begin{align*}
+  \begin{array}{lllll}
+    V(s)&=&G_1(s)\cdot U(s)\\
+    Y(s)&=&G_2(s)\cdot V(s)&=&G_2(s)\cdot G_1(s)\cdot U(s)
+  \end{array}
+\end{align*}
+\textbf{Beziehung zwischen DGL und ÜF}\\
+z.B. Beispiel 3.1:
+\begin{equation*}
+  \underbrace{T}_{a_1}\cdot \dot{y}(t) +\underbrace{1}_{a_0}y(t)=\underbrace{k}_{b_0}\cdot U(t)
+\end{equation*}
+\begin{equation*}
+  G(s)=\frac{\overbrace{k}^{b_0}}{\underbrace{T}_{a_1}s+\underbrace{1}_{a_0}}
+\end{equation*}
+\textbf{allgemein:} DGL der Form\\
+\begin{equation*}
+  a_ny^{(n)}+a_{n-1}y^{(n-1)}+\dots +a_1\dot{y}(t)+a_0=b(u(t))+b_1\dot{u}(t)+\dots +b_mu^{(n)}(t)
+\end{equation*}
+$\Rightarrow$ Rationale ÜF (Regel 5 mit verschwindendem Anfangswert)
+\begin{equation*}
+  G(s)=\frac{Y(t)}{U(s)}= \frac{b_0+b_1\cdot s + b_ms}{\underbrace{a_0+a_1\cdot s +a_ns^n}_{\text{Nullstellen des Nenners }:=\text{ Pole der ÜF}}}
+\end{equation*}
+\begin{itemize}
+\item Falls $n<m$: ``Reales'' System
+\item Falls $n<m$: differenzierendes Verhalten
+\item falls $a_0=a_1=\dots=a_\rho =0$: $s^\rho$ kann im Nenner ausgeklammert werden $\Rightarrow$ $\rho$-fach integrierend. 
+\end{itemize}
 
-\textbf{HIER AUCH!!!!!}
 
 \end{document}
 
