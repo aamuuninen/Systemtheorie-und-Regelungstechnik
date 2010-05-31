@@ -67,7 +67,7 @@
 \rhead{Seite \thepage} \lfoot{} \cfoot{} \rfoot{} %Seitenzahlen in Header ausgeben
 \renewcommand{\headrulewidth}{0.2pt} %GrÃ¶Ãe der Kopfzeile
 
-%Dokumentinformationen (Erscheint, wenn man mit der Maus Ã¼ber dem fertigen PDF schwebt. Erst NACH einsetzen der korrekten Daten einkommentieren, falsche Titel etc. sind peinlich.
+%Dokumentinformationen 
 
 \author{William Glover}
 \title{Systemtheorie und Regelungstechnik} 
@@ -1031,8 +1031,62 @@ $\Rightarrow$ Rationale ÜF (Regel 5 mit verschwindendem Anfangswert)
 \item Falls $n<m$: differenzierendes Verhalten
 \item falls $a_0=a_1=\dots=a_\rho =0$: $s^\rho$ kann im Nenner ausgeklammert werden $\Rightarrow$ $\rho$-fach integrierend. 
 \end{itemize}
+\paragraph{praktische Betrachtung}
+\begin{bsp}Harmonische Anregung eines Federschwingers
+\end{bsp}
+\subparagraph{Messungen}
+\begin{align*}
+  \begin{array}{|l|c|l|l|l|l|l|l|l|l|}
+    \hline
+    \omega               &0,2 &0,4 &0,6 &0,8&1,0&1,2&1,4&2,0&10    \\
+    T=\frac{2\pi}{\omega}&31,4&15,7&10,5&7,9&6,3&5,2&4,5&3,1&0,62  \\
+    \hline
+    A(\omega)            &1,04&1,16&1,45&2,1&2,5&1,5&0,9&0,3&0,01  \\
+    \Phi(\omega)         &-\frac{0,4}{31,4}\cdot 360\degree =-4,5\degree&-9\degree&-17\degree&-45\degree&-90\degree&-139\degree&-160&-174&-180\\
+\hline
+  \end{array}
+\end{align*}
+\textbf{HIER FEHLT MAL WIEDER WAS}
+\begin{itemize}
+\item Der Frequenzgang $G(j\omega)=A(\omega)\cdot e^{j\Phi(\omega}$ wird in Stützstellen $\omega$ definiert
+\item Damit ist auch die ÜF $G(s)$ definiert!
+\item Graphische Darstellung? Die sog. \emph{Ortskurve} wird in Kap. 3.5 beschriegen, das sog. \emph{Bode-Diagramm} in Kap. 3.6
+\end{itemize}
 
+\subsection{Ortskurve}
 
+Die Ortskurve ist ein Kurvenzug, der von $G(j\omega)$ in der komplexen Ebene beschrieben wird, wenn die Anregungsfrequenz $\omega$ im Intervall $(0\leq \omega \leq \infty)$ variiert wird.
+
+\textbf{Falls nicht in der VL gemacht, hier aufstellung der Ortskurve theoretisch erläutern!}
+Auftragen von $A(j\omega)$ in einem Zeigerdiagramm (Imaginärteil über Realteil). Durch anschließendes Verbinden der Punkte erhält man die sog. \emph{Ortskurve}.\\
+Die Ortskurve kann auch aus $G(s)$ berechnet werden:
+\begin{itemize}
+\item I-Glied: $G(s)=k\cdot \frac{1}{s} \underbrace{\Rightarrow}_{s=j\omega}G(j\omega)=k\cdot \frac{1}{j\omega}=\underbrace{k\cdot \frac{1}{\omega}}_{A(\omega)=const.}\cdot \underbrace{e^{-j\frac{\pi}{2}}}_{\Phi(\omega)}$
+\item $T_t$-Glied: $G(s)=k\cdot e^{-sT_t}; G(j\omega)=\underbrace{k}_{A(\omega)=const.}\cdot \underbrace{e^{-j\omega T_t}}_{\Phi(\omega)}$
+\end{itemize}
+Für eine Übersicht genügt die Betrachtung der Asymptoten der Ortskurve:
+\[
+G(j\omega)=\frac{b_0+b_1(j\omega)+\dots+b_m(j\omega)^m}{a_0+a_1(j\omega)+\dots+a_n(j\omega)^n}\cdot e^{-(j\omega)T_t}
+\]
+
+\paragraph{Anfang der Ortskurve:}
+
+\begin{itemize}
+\item falls $a_0 \neq 0, b_0 \neq 0$\\
+  $\lim\limits_{w\mapsto 0}{G(j\omega)=\frac{t_0}{a_0}=k}$ Start der OK auf der Re-Achse
+\item falls $a_0=a_1=\dots=a_{\rho -1}=0$ $\rho$-fach Integrierend\\
+$\lim\limits_{\omega \mapsto 0}{G(j\omega)= \lim\limits_{\omega \mapsto 0}\frac{b_0+\dots}{a_\rho(j\omega)^\rho+\dots+\a_n(j\omega)^n}}=\lim\limits_{\omega \mapsto 0} {\frac{1}{(j\omega)^\rho} \cdot \frac{b_0+\dots}{a_\rho+\dots}}=\lim\limits_{\omega \mapsto 0}{\frac{1}{\omega^\rho}\cdot \frac{b_0}{a_\rho}\cdot e^{-j\rho\frac{\pi}{2}}} \Rightarrow$ OK kommt aus dem Unendlichen mit Phasenwinkel $-\rho \frac{\pi}{2}$
+\end{itemize}
+
+\subsection{Bode-Diagramm}
+
+\subsubsection{Definition}
+
+Das Bode-Diagramm ist die getrennte graphische Darstellung des \emph{Amplitudenverlaufs $A(\omega)$} und des \emph{Phasenverlaufs $\Phi(\omega)$} über der Frequenz $\omega$. In der Regel werden die Größen logaritmisch aufgetragen.\\
+Die Amplitude wird auch logaritmisch in Dezibel (dB) dargestellt:
+\[
+A(\omega)_{dB}=20 log_{10}A(\omega)
+\]
 \end{document}
 
 
