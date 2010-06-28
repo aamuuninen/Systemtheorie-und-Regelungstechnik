@@ -42,6 +42,10 @@
 %\multirow ermöglichen in Tabellen
 \usepackage{multirow} 
 
+%Römische Zahlen mit  \RM{}
+\newcommand{\RM}[1]{\MakeUppercase{\romannumeral #1{.}}}
+
+
 %Bessere Worttrennung, Kerning ein. 
 \usepackage[protrusion=true,expansion=true, kerning]{microtype}
 
@@ -1430,10 +1434,11 @@ $\Rightarrow$ Das System besitzt keine zwei Freiheitsgrade!
 \subsection{Beobachtbarkeit}
 
 Um ein System beherrschen zu können, müssen alle inneren Zustände auf die Ausgangsgröße $y(t)$ wirken. Ein solches System heißt \emph{Beobachtbar} (vgl. Blatt 4-2)
+\begin{figure}[H]
 \begin{bsp}
 \end{bsp}
-\begin{figure}[H]
-  \textbf{Hier fehlt ein Bild...}
+\centering
+\includegraphics[width=.4\linewidth]{sysregel_bsp_4_2}
 \end{figure}
 Bilanzen:
 \[
@@ -1494,10 +1499,10 @@ Der Rang der Matrix von Behälter 1 ist 1, das System ist also nicht beobachtbar
 \section{Reglerentwurf}
 
 \begin{description}
-\item[Idee] Aus dem Sollwert und der fortlaufenden Beobachtung des dynamischen Systems (``Strecke'') wird eine geeignete Änderung des Systems (``Stellgröße'') bestimmt, die dazu führt, das der Ausgangswert des Systems (``Regrelgröße'') dem Sollwert folgt. Dies geschiet auch bei Störeinwirkung.
+\item[Idee] Aus dem Sollwert und der fortlaufenden Beobachtung des dynamischen Systems (``Strecke'') wird eine geeignete Änderung des Systems (``Stellgröße'') bestimmt, die dazu führt, das der Ausgangswert des Systems (``Regelgröße'') dem Sollwert folgt. Dies geschiet auch bei Störeinwirkung.
 \end{description}
 
-\subsection{Reglerentwurd im Bildbereich}
+\subsection{Reglerentwurf im Bildbereich}
 \begin{figure}[H]
   \centering
 \includegraphics[width=\linewidth]{sysregel_regler}  
@@ -1545,6 +1550,71 @@ G_{z_1}(s)=\frac{Y(s)}{Z_1(s)}=\frac{G_s(s)}{1+G_s(s)\cdot G_R(s)}\stackrel{!}{=
 Im Allgemeinen kann eine Störung am Ende des Regelkreises schlechter ausgeglichen werden als eine Störung am Anfang des Regelkreises.
 \end{description}
 
+\textbf{HIER FEHLT NOCH EINE GANZE VORLESUNG!!!}
+
+\subsubsection{}
+\subsubsection{}
+
+\subsubsection{}
+
+
+
+
+
+\subsubsection{Reglersynthese auf Basis des Bodediagramms}
+
+\begin{itemize}
+\item Vorab für (\RM{2}):I-Anteil einführen, falls Strecke keinen eigenen I-Anteil besitzt.
+\item für (\RM{1}):Stabilität nach dem Nyquist-Kriterium
+\item Direkt an der Stabilitätsgrenze schwingt das System stark, daher wird der Regler in einem gewissen Abstand zu dieser Grenze dimensioniert. Es wird eine Phasenreserve $\Phi_R$ vorgegeben, um die Forderung (\RM{3}) zu erfüllen. Dadurch wird die Schwingung unterbunden, und Bauteiltoleranzen und Störungen führen nicht zu instabilitäten der Systems.
+\end{itemize}
+\begin{description}
+\item[Faustregel:] $\Phi_R$ wird zwischen $30\degree$ und $70\degree$ gewählt. Je kleiner $\Phi_R$, desto mehr werden Schwingungen gedämpft. Allerdings wird der Regler mit zunehmendem $\Phi_R$ auch langsamer. Es muss also ein Kompromiss gefunden werden.\\
+Die Durchtrittsfrequenz $\omega_D$ bestimmt die Dynamik (``Schnelligkeit'') des geregelten Systems. Daher ist die Dynamische Korrektur so zu wählen, dsas $\omega_D$ möglichst hoch liegt, um gute Dynamik zu erreichen (\RM{4})  
+\end{description}
+\begin{itemize}
+\item z.B. PID-Regler zur dynamischen Korrektur (im Bodediagramm)
+  \begin{figure}[H]
+    \centering
+\includegraphics[width=.7\linewidth]{sysregel_PID}
+  \end{figure}
+\end{itemize}
+\begin{description}
+\item[Alternatives Vorgehen:] Reglerzeitkonstanten so wählen, dass die größten Zeitkonstanten (dynamisch dominant) der Strecke kompensiert werden. 
+\end{description}
+\begin{bsp} 
+\end{bsp}
+Strecke aus dem vorhergehenden Beispiel:
+\[
+G_s(s)=\frac{0.1}{(1+10s)(1+5s)(1+2s)}
+\]
+\begin{itemize}
+\item Strecke ist stabil \checkmark
+\item Strecke hat keinen I-Anteil $\rightarrow$ PID-Regler verwenden (real)
+\item Reglerzeitkonstanten sollen Streckenzeitkonstanten kompensieren
+\end{itemize}
+
+\begin{figure}[H]
+  \centering
+\includegraphics[width=0.7\linewidth]{sysregel_bsp_5_4}  
+\end{figure}
+\[
+G_0(s)=G_R(s)\cdot G_s(s)=v \cdot \frac{(1+T_1s)(1+T_2s)}{s(1+T_ns} \cdot \frac{0.1}{(1+10s)(1+5s)(1+2s)}
+\]
+\[
+G_0(s)=v\cdot \frac{\cancel{(1+10s)}\cancel{(1+5s)}\cdot 0.1}{s\cdot \cancel{(1+10s)}\cancel{(1+5s)}(1+2s)(1+0.5s)}=\frac{v\cdot 0.1}{\underbrace{s}_{I}\underbrace{(1+2s)}_{1. PT_1}\underbrace{(1+0.5s)}_{2. PT_1}}
+\]
+
+\paragraph{Bodediagramm für v=1}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.7\linewidth]{sysregel_bode_5-4}
+\end{figure}
+Man erkennt, dsas bei $\Phi_R=40\degree \omega_D=0.5$ ist. Damit $ \omega_D$ die Durchtrittsfrequenz ist (Schnitt mit 0~dB) kann die Ampliture um ca. 14~dB verschoben werden. ($\rightarrow v\approx 7)$. Damit ist der PID-Regler definiert als:
+\[
+G_R(s)=7\cdot \frac{1+10s)(1+5s)}{s(1+0.5s)}
+\]
 \end{document}
 
 
