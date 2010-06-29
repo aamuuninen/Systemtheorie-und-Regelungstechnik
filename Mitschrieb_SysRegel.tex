@@ -1148,7 +1148,7 @@ Es gilt $\omega = \omega_0 =\frac{1}{T_t}$
 G(j\omega)=\frac{k}{1+j\omega T}\\
 \text{mit } k=1 \text{ und } \omega_0=\frac{1}{T}\\
 G(j\omega)=\frac{1}{1+j\frac{\omega}{\omega_0}}\\
-A(\omega)=BETRAG(G(j\omega))=\frac{1}{\sqrt{1+(\frac{\omega}{\omega_0})^2}}
+A(\omega)=|G(j\omega)|=\frac{1}{\sqrt{1+(\frac{\omega}{\omega_0})^2}}
 \]
 $\omega_0$:Eckfrequenz
 \begin{itemize}
@@ -1550,15 +1550,94 @@ G_{z_1}(s)=\frac{Y(s)}{Z_1(s)}=\frac{G_s(s)}{1+G_s(s)\cdot G_R(s)}\stackrel{!}{=
 Im Allgemeinen kann eine Störung am Ende des Regelkreises schlechter ausgeglichen werden als eine Störung am Anfang des Regelkreises.
 \end{description}
 
-\textbf{HIER FEHLT NOCH EINE GANZE VORLESUNG!!!}
+\textbf{HIER FEHLT NOCH 5.1.1}
 
-\subsubsection{}
-\subsubsection{}
+\subsubsection{Fehlt noch}
+\subsubsection{Forderungen für die Reglersynthese}
+\begin{itemize}
+\item[\RM{1}] \underline{Der Regelkreis soll stabil sein!}\\
+Überprüfung durch
+\begin{itemize}
+\item Hurwitz-Kriterium (geschlossener Kreis $G_w(s)$!)
+\item Nyquist-Kriterium (offener Kreis $G_0(s)-G_R(s)G_s(s)$ (Auch für Systeme mit Totzeit)
+\end{itemize}
+\item[\RM{2}] \underline{Der Regelkreis muss genügend stationäre Genauigkeit besitzen!}\\
+\textbf{Beispiel:} Die Strecke
+\[
+G_s(s)=\frac{0.1}{(1+10s)(1+5s)(1+2s)}
+\]
+soll durch ein P-Glied mit $G_R(s)=K_R$ geregelt werden.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.7\linewidth]{sysregel_No_1}
+\end{figure}
 
-\subsubsection{}
+Nach (\RM{1}): geschlossener Kreis
+\begin{align*}
+  \begin{array}{llllll}
+    G_w(s)&=&\frac{G_0(s)}{1+G_0(s)}&=&\frac{\frac{K_R\cdot 0.1}{(1+10s)(1+5s)(1+2s)}}{\frac{1+K_R\cdot 0.1}{(1+10s)(1+5s)(1+2s)}}\\
+    &=&\frac{0.1K_R}{(1+10s)(1+5s)(1+2s)+0.1k_R}&=&\frac{0.1K_R}{100s^2+80s^2+17s+1+0.1K_R}
+  \end{array}
+\end{align*}
+Nach dem Hurwitzkriterium folgt mit
+\begin{enumerate}
+\item $a_i>0 \Rightarrow 1+0.1k_R>0\Rightarrow K_R> -10$
+\item $a_1a_2-a_0a_3=1360-100(1+0.1K_R)\Rightarrow K_R<126$
+\end{enumerate}
+das das System für $-10<K_R<126$ stabil ist. $K_R$ kann also \emph{nicht} beliebig groß sein! Die Fragestellung für (\RM{2}) lautet nun ``Wie folgt die Regelgröße $y(t)$ einem Einheitssprung für $t\mapsto \infty$''
+\begin{align*}
+  \begin{array}{lllll}
+    \omega (t)&=&\sigma(t)\Rightarrow \omega (s)&=&\frac{1}{s}\\
+    Y(s)&=&G_u(s)\cdot\omega (s)&=&\frac{0.1K_R}{(100s^3+80s^2+17s+1+0.1K_R)s}
+  \end{array}
+\end{align*}
+\[
+\lim\limits_{t\mapsto\infty}{y(t)}\underbrace{=}_{\text{Regel 12}}\lim\limits_{s\mapsto 0}{sY(s)}=\frac{0.1K_R}{1+0.1K_R}=\frac{K_R}{10+K_R}\mapsto 1\text{ für }K_R\mapsto\infty
+\]
+Stationäre Genauigkeit ist nur für $K_R\mapsto\infty$ zu erzielen. Dies ist ein Zielkonflikt mit (\RM{1})
+  \begin{figure}[H]
+\item[\RM{3}] \underline{Der Regelkreis muss genügend gedämpft sein}\\
+
+    \centering
+    \includegraphics[width=.7\linewidth]{sysregel_No_3}
+  \end{figure}
+\begin{figure}[H]
+\item[\RM{4}] \underline{Der Regelkreis muss hinreichend schnell sein}\\
+  
+    \centering
+    \includegraphics[width=.7\linewidth]{sysregel_No_4}
+  \end{figure}
+
+\end{itemize}
+Auch (\RM{3}) und (\RM{4}) führen zu einem Zielkonflikt. Durch eine geeignete Korrektureinrichtung muss ein Kompromiss gefunden werden.
+
+\subsubsection{Auswahl geeigneter Glieder zur dynamischen Korrektur}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.7\linewidth]{sysregel_No_2}
+\end{figure}
 
 
+\begin{description}
+\item[R-Regler:] Je größer die Regeldifferenz, desto größer ist die Stellgröße
+\item[I-Regler:] Lange andauernde Regeldifferenzen werden integriert, sodass die Stellgröße anwächst. Diese Regler sind \emph{stationär genau} nach Forderung \RM{2}
+\item[D-Regler:] Sobald sich die Regeldifferenz ändert, wird eine Stellgröße erzeugt. Hier aus ergibt sich eine schnelle Reaktion nach Forderung \RM{4} 
+\end{description}
 
+\paragraph{Kombination: PID-Regler}
+
+\begin{align*}
+  \begin{array}{lllll}
+    G_R(s)&=&K_R(1+\frac{1}{T_Is}+T_Ds)\\
+    G_R(s)&=&\underbrace{\frac{K_R}{T_I}}_{u}\frac{1+T_Is+T_IT_Bs^2}{s}&=&u\cdot \frac{(1+T_1s)(1+T_2s)}{s}
+  \end{array}
+\end{align*}
+mit $T_1>T_2$ und $T_1T_2=T_I+T_D$ sowie $T_1+T_2=T_I$\\
+Dies ist schlecht realisierbar, da der Zählergrad=2>Nennergrad. Daher wird das System durch eine zusätzliche Zeitkonstante im Nenner zum ``realen PID-Regler'' erweitert:
+\[
+G_R(s)=\frac{K_R}{T_I}\frac{(1+T_1s)(1+T_2s)}{s(1+T_Ns)}
+\] 
+\textbf{Faustregel:} $T_N \approx \frac{1}{10}T_2$
 
 
 \subsubsection{Reglersynthese auf Basis des Bodediagramms}
@@ -1598,12 +1677,12 @@ G_s(s)=\frac{0.1}{(1+10s)(1+5s)(1+2s)}
   \centering
 \includegraphics[width=0.7\linewidth]{sysregel_bsp_5_4}  
 \end{figure}
-\[
-G_0(s)=G_R(s)\cdot G_s(s)=v \cdot \frac{(1+T_1s)(1+T_2s)}{s(1+T_ns} \cdot \frac{0.1}{(1+10s)(1+5s)(1+2s)}
-\]
-\[
-G_0(s)=v\cdot \frac{\cancel{(1+10s)}\cancel{(1+5s)}\cdot 0.1}{s\cdot \cancel{(1+10s)}\cancel{(1+5s)}(1+2s)(1+0.5s)}=\frac{v\cdot 0.1}{\underbrace{s}_{I}\underbrace{(1+2s)}_{1. PT_1}\underbrace{(1+0.5s)}_{2. PT_1}}
-\]
+\begin{align*}
+  \begin{array}{lllll}
+  G_0(s)&=&G_R(s)\cdot G_s(s)&=&v \cdot \frac{(1+T_1s)(1+T_2s)}{s(1+T_ns} \cdot \frac{0.1}{(1+10s)(1+5s)(1+2s)} \\
+&=&v\cdot \frac{\cancel{(1+10s)}\cancel{(1+5s)}\cdot 0.1}{s\cdot \cancel{(1+10s)}\cancel{(1+5s)}(1+2s)(1+0.5s)}&=&\frac{v\cdot 0.1}{\underbrace{s}_{I}\underbrace{(1+2s)}_{1. PT_1}\underbrace{(1+0.5s)}_{2. PT_1}}
+  \end{array}
+\end{align*}
 
 \paragraph{Bodediagramm für v=1}
 
