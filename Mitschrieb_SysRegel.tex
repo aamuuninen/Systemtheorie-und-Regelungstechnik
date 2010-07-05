@@ -19,7 +19,6 @@
 \usepackage{subfig}
 
 \usepackage{wrapfig} %Einbetten von Bildern, Tables etc. in den Text ermÃ¶glichen
-
 \usepackage{cite} %Zitieren nach IEEE mit dem Befehl \cite{bla} auf Refrent in thebibliography mit kennung "`bla"'
 
 \usepackage{float} % Bei Gleitobjekten Position mit [H] festsetzen! (Sparsam verwenden!)
@@ -134,13 +133,6 @@
 
 \tableofcontents %Inhaltsverzeichnis setzen
 \newpage 
-
-%Leere Seite, damit Inhalt nicht auf der RÃ¼ckseite des Inhaltsverzeichnisses beginnt. (Bei Druckversion, bei Emailabgabe auskommentieren!)
-        
-        \thispagestyle{empty}~
-        \newpage
-     
-%Ende leere Zwischenseite
 
 \setcounter{page}{2} %Seitenzahl auf 2 setzen
 
@@ -1706,6 +1698,77 @@ Man erkennt, dsas bei $\Phi_R=40\degree \omega_D=0.5$ ist. Damit $ \omega_D$ die
 G_R(s)=7\cdot \frac{1+10s)(1+5s)}{s(1+0.5s)}
 \]
 
+\subsubsection{Reglerentwurf auf Basis der Wurzelortskurve}
+
+Man geht von einem geschlossenen Kreis aus.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.7\linewidth]{sysregel_No_5}
+\end{figure}
+Die Polstellen des geschlossenen Kreises beschreiben Bahnen in der komplexen Ebene, wenn die Verstärkung $0\leq k \leq\infty$ variiert wird. Dies nennt man die \emph{Wurzelortskurve}.
+\[
+G_\omega(s) =\frac{k\cdot G_0(s)}{1+k\cdot G_0(s)}
+\]
+Es interessieren die Nullstellen des Nenners. Es soll also gelten 
+\[
+1+k\cdot G_0(s)=1+k\cdot \frac{Z_0(s)}{N_0(s)}=0 \Rightarrow N_0(s)+kZ_0(s)=0
+\]
+Der Beginn der Wurzelortskurve (WOK) ($k=0$) liegt also in den Nullstellen von $N_0(s)$ (Polstellen von $G_0(s))$. Das Ende der WOK $(k\mapsto\infty)$ liegt in den Nullstellen von $Z_0(s)$ (Nullstellen von $G_0(s)$). Man geht davon aus, dass der Nennergrad größer ist als der Zählergrad. Daraus folgt für $(n-m)$, dass die Äste der WOK im Unendlichen enden.
+Mit der WOK lassen sich auch dann Regler konstruieren, wenn das System instabil ist, man mit dem Bode-Diagramm also keine Regler erstellen kann. Man kann also einen Regler konstruieren, der aus einem instabilen ein stabiles System macht. Das Thema wird in der Vorlesung allerdings nicht weiter vertieft! Im Skript von Prof. Ament ist das Vorgehen beschrieben.
+
+\subsection{Reglerentwurf im Zustandsraum}
+
+Alternatives Vorgehen, welches ebenfalls für instabile Systeme funktioniert. 
+
+\subsubsection{Struktur}
+
+Um ein System in Zustandsraumdarstellung regeln zu können, wird der Zustandsvektor $\vec{x}(t)$ gewichtet und als Stellgröße zurückgeführt.  
+\[
+u(t)=-\underbrace{\mathbf{k}}_{\text{Gewichtung: Reglermatrix}}\cdot \vec{x}(t) 
+\]
+Man nennt dies die \emph{Lineare Zustandsrückführung}\\
+In die Zustandsgleichung einsetzen:
+\[
+\dot{\vec{x}}(t)=\mathbf{A}\vec{x}(t)+\mathbf{B}\vec{u}(t)=\mathbf{A}\vec{x}(t)+\mathbf{B}(-\mathbf{k}\vec{x}(t))=\underbrace{(\mathbf{A}-\mathbf{Bk})}_{\mathbf{A_R}}\vec{x}(t)
+\]
+$A_r$ nennt man die \emph{Systemmatrix des geregelten Systems}. 
+\begin{description}
+\item[Idee:] \textbf{k} so wählen, dass $\mathbf{A_R}$ stabil ist und die gewünschten dynamischen Eigenschaften besitzt. Dazu werden die Eigenwerte von $\mathbf{A_R}$ vorgegeben.
+\end{description}
+
+\subsubsection{Reglerentwurf}
+
+\begin{bsp}
+Reglerentwurf für Eingrößensysteme
+\end{bsp}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.2\linewidth]{sysregel_No_6}
+\end{figure}
+Linearisierung:
+\[
+\ddot{\Phi}(t)-\frac{g}{l}\Phi(t)=M(t)
+\]
+mit $\Phi(t)$ als Regelgröße und $M(t) =$ Antriebsmoment.Im Zustandsraum:
+\[
+\begin{pmatrix}
+  \dot{l}\\\dot{w}
+\end{pmatrix}
+=
+\begin{pmatrix}
+  0&1\\
+\frac{g}{l}&0
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+  y\\\omega
+\end{pmatrix}
++
+\begin{pmatrix}
+  0\\1
+\end{pmatrix}
+M
+\]
 \end{document}
 
 
