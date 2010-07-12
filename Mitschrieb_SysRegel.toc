@@ -1,0 +1,64 @@
+\select@language {ngerman}
+\contentsline {section}{\numberline {0}Vorwort}{2}{section.0}
+\contentsline {section}{\numberline {1}Beschreibung dynamischer Systeme durch das Blockschaltbild (BSB)}{3}{section.1}
+\contentsline {subsection}{\numberline {1.1}Beispiele zum Aufstellen eines BSB}{3}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}H\IeC {\"a}ufig verwendete \IeC {\"U}bertragungsglieder}{8}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}Nichtlineare Glieder und Linearisierung}{8}{subsection.1.3}
+\contentsline {section}{\numberline {2}Systembeschreibung im Zeitbereich}{10}{section.2}
+\contentsline {subsection}{\numberline {2.1}Differentialgleichungen}{10}{subsection.2.1}
+\contentsline {subsubsection}{\numberline {2.1.1}Aufstellen der DGL}{10}{subsubsection.2.1.1}
+\contentsline {subsubsection}{\numberline {2.1.2}L\IeC {\"o}sung von Differentialgleichungen mit konstanten Koeffizienten}{11}{subsubsection.2.1.2}
+\contentsline {subsection}{\numberline {2.2}\IeC {\"U}bertragungsverhalten}{12}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}Gewichtsfunktion und Faltung}{12}{subsubsection.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.2}Eigenschaften}{13}{subsubsection.2.2.2}
+\contentsline {subsubsection}{\numberline {2.2.3}Sprungsantwort und Impulsantwort}{14}{subsubsection.2.2.3}
+\contentsline {subsection}{\numberline {2.3}Darstellung im Zustandsraum}{15}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {2.3.1}Numerische Simulation}{18}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.2}Lineare Systeme}{19}{subsubsection.2.3.2}
+\contentsline {subsubsection}{\numberline {2.3.3}Aufstellen der Zustandsgleichung aus BSB und DGL}{19}{subsubsection.2.3.3}
+\contentsline {paragraph}{aus dem Blockschaubild}{19}{section*.10}
+\contentsline {paragraph}{Aus der Differentialgleichung}{20}{section*.11}
+\contentsline {section}{\numberline {3}Systembeschreibung im Bildbereich}{22}{section.3}
+\contentsline {subsection}{\numberline {3.1}Laplace-Transformation}{22}{subsection.3.1}
+\contentsline {subsubsection}{\numberline {3.1.1}Grundlagen}{22}{subsubsection.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.2}L\IeC {\"o}sung einer DGL}{23}{subsubsection.3.1.2}
+\contentsline {subsection}{\numberline {3.2}\IeC {\"U}bertragungsfunktion \IeC {\"U}F}{24}{subsection.3.2}
+\contentsline {paragraph}{praktische Betrachtung}{25}{section*.12}
+\contentsline {subparagraph}{Messungen}{25}{section*.13}
+\contentsline {subsection}{\numberline {3.3}Ortskurve}{25}{subsection.3.3}
+\contentsline {paragraph}{Anfang der Ortskurve:}{26}{section*.14}
+\contentsline {paragraph}{Ende der Ortskurve:}{26}{section*.15}
+\contentsline {subsection}{\numberline {3.4}Bode-Diagramm}{26}{subsection.3.4}
+\contentsline {subsubsection}{\numberline {3.4.1}Definition}{26}{subsubsection.3.4.1}
+\contentsline {subsubsection}{\numberline {3.4.2}Bode-Diagramme h\IeC {\"a}ufig verwendeter \IeC {\"U}bertragungsglieder}{27}{subsubsection.3.4.2}
+\contentsline {paragraph}{P-Glied}{27}{section*.16}
+\contentsline {paragraph}{I-Glied}{27}{section*.17}
+\contentsline {paragraph}{$T_t$-Glied}{27}{section*.18}
+\contentsline {paragraph}{$pT_1$-Glied}{27}{section*.19}
+\contentsline {paragraph}{$pT_2$-Glied}{28}{section*.20}
+\contentsline {subsubsection}{\numberline {3.4.3}Rechenregeln}{28}{subsubsection.3.4.3}
+\contentsline {paragraph}{Serienschaltung}{28}{section*.21}
+\contentsline {paragraph}{P-Glied}{28}{section*.22}
+\contentsline {section}{\numberline {4}Analyse von Systemeigenschaften}{29}{section.4}
+\contentsline {subsection}{\numberline {4.1}Stabilit\IeC {\"a}t}{29}{subsection.4.1}
+\contentsline {subsubsection}{\numberline {4.1.1}Definitionen und Bedingungen}{29}{subsubsection.4.1.1}
+\contentsline {subsubsection}{\numberline {4.1.2}Hurwitz-Kriterium}{31}{subsubsection.4.1.2}
+\contentsline {subsubsection}{\numberline {4.1.3}Nyquist-Kriterium}{33}{subsubsection.4.1.3}
+\contentsline {subsection}{\numberline {4.2}Steuerbarkeit}{34}{subsection.4.2}
+\contentsline {paragraph}{BSP:}{35}{section*.23}
+\contentsline {subsection}{\numberline {4.3}Beobachtbarkeit}{35}{subsection.4.3}
+\contentsline {section}{\numberline {5}Reglerentwurf}{36}{section.5}
+\contentsline {subsection}{\numberline {5.1}Reglerentwurf im Bildbereich}{37}{subsection.5.1}
+\contentsline {subsubsection}{\numberline {5.1.1}Fehlt noch}{38}{subsubsection.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.2}Forderungen f\IeC {\"u}r die Reglersynthese}{38}{subsubsection.5.1.2}
+\contentsline {subsubsection}{\numberline {5.1.3}Auswahl geeigneter Glieder zur dynamischen Korrektur}{40}{subsubsection.5.1.3}
+\contentsline {paragraph}{Kombination: PID-Regler}{41}{section*.24}
+\contentsline {subsubsection}{\numberline {5.1.4}Reglersynthese auf Basis des Bodediagramms}{41}{subsubsection.5.1.4}
+\contentsline {paragraph}{Bodediagramm f\IeC {\"u}r v=1}{44}{section*.25}
+\contentsline {subsubsection}{\numberline {5.1.5}Reglerentwurf auf Basis der Wurzelortskurve}{45}{subsubsection.5.1.5}
+\contentsline {subsection}{\numberline {5.2}Reglerentwurf im Zustandsraum}{45}{subsection.5.2}
+\contentsline {subsubsection}{\numberline {5.2.1}Struktur}{46}{subsubsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2}Reglerentwurf}{46}{subsubsection.5.2.2}
+\contentsline {subsubsection}{\numberline {5.2.3}Bestimmung des Vorfilters}{48}{subsubsection.5.2.3}
+\contentsline {section}{\numberline {6}Beobachtung nicht direkt messbarer Systemzust\IeC {\"a}nde}{49}{section.6}
+\contentsline {subsection}{\numberline {6.1}Idee und Struktur}{49}{subsection.6.1}

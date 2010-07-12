@@ -1,0 +1,47 @@
+\BOOKMARK [1][-]{section.0}{Vorwort}{}
+\BOOKMARK [1][-]{section.1}{Beschreibung dynamischer Systeme durch das Blockschaltbild \(BSB\)}{}
+\BOOKMARK [2][-]{subsection.1.1}{Beispiele zum Aufstellen eines BSB}{section.1}
+\BOOKMARK [2][-]{subsection.1.2}{H\344ufig verwendete \334bertragungsglieder}{section.1}
+\BOOKMARK [2][-]{subsection.1.3}{Nichtlineare Glieder und Linearisierung}{section.1}
+\BOOKMARK [1][-]{section.2}{Systembeschreibung im Zeitbereich}{}
+\BOOKMARK [2][-]{subsection.2.1}{Differentialgleichungen}{section.2}
+\BOOKMARK [3][-]{subsubsection.2.1.1}{Aufstellen der DGL}{subsection.2.1}
+\BOOKMARK [3][-]{subsubsection.2.1.2}{L\366sung von Differentialgleichungen mit konstanten Koeffizienten}{subsection.2.1}
+\BOOKMARK [2][-]{subsection.2.2}{\334bertragungsverhalten}{section.2}
+\BOOKMARK [3][-]{subsubsection.2.2.1}{Gewichtsfunktion und Faltung}{subsection.2.2}
+\BOOKMARK [3][-]{subsubsection.2.2.2}{Eigenschaften}{subsection.2.2}
+\BOOKMARK [3][-]{subsubsection.2.2.3}{Sprungsantwort und Impulsantwort}{subsection.2.2}
+\BOOKMARK [2][-]{subsection.2.3}{Darstellung im Zustandsraum}{section.2}
+\BOOKMARK [3][-]{subsubsection.2.3.1}{Numerische Simulation}{subsection.2.3}
+\BOOKMARK [3][-]{subsubsection.2.3.2}{Lineare Systeme}{subsection.2.3}
+\BOOKMARK [3][-]{subsubsection.2.3.3}{Aufstellen der Zustandsgleichung aus BSB und DGL}{subsection.2.3}
+\BOOKMARK [1][-]{section.3}{Systembeschreibung im Bildbereich}{}
+\BOOKMARK [2][-]{subsection.3.1}{Laplace-Transformation}{section.3}
+\BOOKMARK [3][-]{subsubsection.3.1.1}{Grundlagen}{subsection.3.1}
+\BOOKMARK [3][-]{subsubsection.3.1.2}{L\366sung einer DGL}{subsection.3.1}
+\BOOKMARK [2][-]{subsection.3.2}{\334bertragungsfunktion \334F}{section.3}
+\BOOKMARK [2][-]{subsection.3.3}{Ortskurve}{section.3}
+\BOOKMARK [2][-]{subsection.3.4}{Bode-Diagramm}{section.3}
+\BOOKMARK [3][-]{subsubsection.3.4.1}{Definition}{subsection.3.4}
+\BOOKMARK [3][-]{subsubsection.3.4.2}{Bode-Diagramme h\344ufig verwendeter \334bertragungsglieder}{subsection.3.4}
+\BOOKMARK [3][-]{subsubsection.3.4.3}{Rechenregeln}{subsection.3.4}
+\BOOKMARK [1][-]{section.4}{Analyse von Systemeigenschaften}{}
+\BOOKMARK [2][-]{subsection.4.1}{Stabilit\344t}{section.4}
+\BOOKMARK [3][-]{subsubsection.4.1.1}{Definitionen und Bedingungen}{subsection.4.1}
+\BOOKMARK [3][-]{subsubsection.4.1.2}{Hurwitz-Kriterium}{subsection.4.1}
+\BOOKMARK [3][-]{subsubsection.4.1.3}{Nyquist-Kriterium}{subsection.4.1}
+\BOOKMARK [2][-]{subsection.4.2}{Steuerbarkeit}{section.4}
+\BOOKMARK [2][-]{subsection.4.3}{Beobachtbarkeit}{section.4}
+\BOOKMARK [1][-]{section.5}{Reglerentwurf}{}
+\BOOKMARK [2][-]{subsection.5.1}{Reglerentwurf im Bildbereich}{section.5}
+\BOOKMARK [3][-]{subsubsection.5.1.1}{Fehlt noch}{subsection.5.1}
+\BOOKMARK [3][-]{subsubsection.5.1.2}{Forderungen f\374r die Reglersynthese}{subsection.5.1}
+\BOOKMARK [3][-]{subsubsection.5.1.3}{Auswahl geeigneter Glieder zur dynamischen Korrektur}{subsection.5.1}
+\BOOKMARK [3][-]{subsubsection.5.1.4}{Reglersynthese auf Basis des Bodediagramms}{subsection.5.1}
+\BOOKMARK [3][-]{subsubsection.5.1.5}{Reglerentwurf auf Basis der Wurzelortskurve}{subsection.5.1}
+\BOOKMARK [2][-]{subsection.5.2}{Reglerentwurf im Zustandsraum}{section.5}
+\BOOKMARK [3][-]{subsubsection.5.2.1}{Struktur}{subsection.5.2}
+\BOOKMARK [3][-]{subsubsection.5.2.2}{Reglerentwurf}{subsection.5.2}
+\BOOKMARK [3][-]{subsubsection.5.2.3}{Bestimmung des Vorfilters}{subsection.5.2}
+\BOOKMARK [1][-]{section.6}{Beobachtung nicht direkt messbarer Systemzust\344nde}{}
+\BOOKMARK [2][-]{subsection.6.1}{Idee und Struktur}{section.6}

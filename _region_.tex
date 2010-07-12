@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper,ngerman]{scrartcl}
+\message{ !name(Mitschrieb_SysRegel.tex)}\documentclass[12pt,a4paper,ngerman]{scrartcl}
 
 %% Laden der benoetigten Pakete:
 
@@ -127,6 +127,9 @@
 \setlength{\parindent}{0pt} % kein Erstzeileneinzug
 
 \begin{document}
+
+\message{ !name(Mitschrieb_SysRegel.tex) !offset(-3) }
+
 \maketitle %Titelseite setzen
 \clearpage %danach neue Seite
 \renewcommand{\baselinestretch}{1.5} %1.5facher Zeilenabstand
@@ -1011,7 +1014,7 @@ aus Bsp 3.1 :
 \begin{equation*}
   Y(s)= \underbrace{\frac{T}{sT+1}y_0}_{\text{nur vom Anfangswert abh. Freie Bewegung}} + \underbrace{\frac{k}{sT+1}u(s)}_{\text{vom Eingang U(s) abh. Erzwungene Bew.}:=G(s)}
 \end{equation*}
-$G(s)$ heißt \emph{Übertragungsfunktion}. Sie beschreibt dsa System vollständig. Das Übertragungs\-verhalten bei verschwindendem Anfangswert, also $y(s)=G(s)\cdot u(s)$ entspricht $y(t)=g(t)*u(t)$ im Zeitbereich. Es gilt also $G(s)=\mathcal{L}\{g(t)\}$. (Regel 9)\\
+$G(s)$ heißt \emph{Übertragungsfunktion}. Sie beschreibt dsa System vollständig. Das Übertragungsverhalten bei verschwindendem Anfangswert, also $y(s)=G(s)\cdot u(s)$ entspricht $y(t)=g(t)*u(t)$ im Zeitbereich. Es gilt also $G(s)=\mathcal{L}\{g(t)\}$. (Regel 9)\\
 Im Bildbereich können Systeme sehr einfach verknüpft werden, z.B. durch Serienschaltungen:
 \begin{align*}
   \begin{array}{lllll}
@@ -1160,14 +1163,11 @@ $\omega_0$:Eckfrequenz
 \item für $\omega=\omega_0$: $A(\omega)=\frac{1}{\sqrt{2}}= -3dB$
 \item für $\omega >>\omega_0$: $A(\omega)\approx \frac{\omega_0}{\omega}$\\
   $\Rightarrow A(\omega)_{dB}=20\log{\frac{\omega_0}{\omega}}=-20\log{\frac{\omega}{\omega_0}}$
-  \begin{align*}
-    \begin{array}[h]{lcll}
-G(j\omega)&\underbrace{=}_{\text{konj. kompl. erweitern}}& \frac{1-j\frac{\omega}{\omega_0}}{1+(\frac{\omega}{\omega_0})^2}\\
-\Rightarrow \Phi(\omega)&=&\arctan{\frac{Im(G(j\omega))}{Re(G(j\omega))}}\\
- =\arctan{\frac{-\frac{\omega}{\omega_0}}{1}}&=&-\arctan{\frac{\omega}{\omega_0}}
-\end{array}
-  \end{align*}
-
+\[
+G(j\omega)\underbrace{=}_{\text{konj. kompl. erweitern}} \frac{1-j\frac{\omega}{\omega_0}}{1+(\frac{\omega}{\omega_0})^2}\\
+\Rightarrow \Phi(\omega)=\arctan{\frac{Im(G(j\omega))}{Re(G(j\omega))}}\\
+ =\arctan{\frac{-\frac{\omega}{\omega_0}}{1}}=-\arctan{\frac{\omega}{\omega_0}}
+\]
 \end{itemize}
 \textbf{HIER FEHLT WAS!!!}
 
@@ -1722,7 +1722,6 @@ Mit der WOK lassen sich auch dann Regler konstruieren, wenn das System instabil 
 
 \subsection{Reglerentwurf im Zustandsraum}
 
-
 Alternatives Vorgehen, welches ebenfalls für instabile Systeme funktioniert. 
 
 \subsubsection{Struktur}
@@ -1820,54 +1819,14 @@ Die Vorraussetzung hierfür ist, dass die Strecke steuerbar ist!
 
 \subsubsection{Bestimmung des Vorfilters}
 
-Bisher blieb die Forderung (\RM{2}) nach stationärer Genauigkeit unberücksichtigt. Es wird nun ein Vorfilter $\mathbf{S}$ eingeführt, der auch diese Forderung mit in die Gleichung einfließen lässt.
+Bisher blieb die Forderung (\RM{2}) nach stationärer Genauigkeit unberücksichtigt. Dazu wird ein Vorfilter $\mathbf{S}$ eingeführt.
 \[
 u(t)=-\vec{k}\vec{x}(t)+\mathbf{S}\underbrace{\vec{\omega}(t)}_{\text{Führungsvektor}}
 \]
-Es soll \textbf{S} für $\mathbf{D}=0$ bestimmt werden.
-\[
-\dot{\vec{x}}=\mathbf{A}\vec{x}+\mathbf{B}\vec{u}=\mathbf{A}\vec{x}+\mathbf{B}(-\vec{k}\vec{x}+\mathbf{S}\vec{\omega})=(\mathbf{A}-\mathbf{B}\vec{k})x+\mathbf{BS}\vec{\omega}
-\]
-im stationären Zustand ist $\dot{x}=0$
-\[
-(A-Bk)x=-\mathbf{BS}\omega
-\]
-
-\[
-\underbrace{\mathbf{C}\vec{x}}_{\text{Ausgangsgl.}=y(t)}=-\mathbf{C}(\mathbf{A}-\mathbf{B}\vec{k})^{-1}\mathbf{BS}\omega
-\]
-\[
--[\mathbf{C}(\mathbf{A-B}\vec{k})^{-1}\mathbf{B}]^{-1}\vec{y}=\mathbf{S}\vec{\omega}
-\]
-Nach Forderung (\RM{2}) muss gelten $\vec{y}=\vec{\omega}$
-\[
-\Rightarrow-[\mathbf{C}(\mathbf{A-B}\vec{k})^{-1}\mathbf{B}]^{-1}=\mathbf{S}
-\]
-
-\section{Beobachtung nicht direkt messbarer Systemzustände}
-
-\subsection{Idee und Struktur}
-\begin{description}
-\item[Problem: ] Für die Zustandsrückführung $\vec{v}(t)=-h\vec{x}(t)$ müssen alle Einträge in $\vec{x}(t)$ messbar sein, was i.A. nicht möglich sein wird. Wie kann man aus den messtechnisch erfassten Größen der gesante Zustandsvektor $\vec{x}(t)$ wenigstens näherungsweise rekonstruieren?
-\item[1. Versuch:] Schätzung mit dem inversen Streckenmodell
-  \begin{figure}[H]
-    \centering
-    \includegraphics[width=\linewidth]{sysregel_No_8}
-  \end{figure}
-Differenzierung ist sehr Störanfällig! Dieses Modell liefert also nur eine schlechte Schätzung von v.
-\item[2. Versuch: ] Schätzung mit Parallelmodell
-  \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\linewidth]{sysregel_No_9}
-  \end{figure}
-Besser realisierbar, aber  
-\begin{itemize}
-  \item Anfangswerte der Strecke sind unbekannt.
-  \item Beide Systeme laufen ``außeinander'', falls sie nicht exakt übereinstimmen
-  \end{itemize}
-\end{description}
 
 \end{document}
 
 
  %ENDE DES ZU ERZEUGENDEN DOKUMENTES! AB HIER WIRD BEI DER DOKUMENTERSTELLUNG ALLES IGNORIERT!!
+
+\message{ !name(Mitschrieb_SysRegel.tex) !offset(-1832) }
