@@ -62,3 +62,6 @@
 \contentsline {subsubsection}{\numberline {5.2.3}Bestimmung des Vorfilters}{48}{subsubsection.5.2.3}
 \contentsline {section}{\numberline {6}Beobachtung nicht direkt messbarer Systemzust\IeC {\"a}nde}{49}{section.6}
 \contentsline {subsection}{\numberline {6.1}Idee und Struktur}{49}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Beobachterentwurf}{50}{subsection.6.2}
+\contentsline {paragraph}{Anwendungen des Beobachters}{51}{section*.26}
+\contentsline {paragraph}{Zustandsraum:}{53}{section*.27}

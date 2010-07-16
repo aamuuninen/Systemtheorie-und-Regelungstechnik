@@ -815,7 +815,6 @@ Diese Gleichung gilt nur bei linearen Systemen und ist außerdem eine beliebte \
     y(t)&=&\mathbf{C}\cdot \vec{x}(t)&+&\mathbf{B}\cdot\vec{u}(t)&\text{Ausgangsgleichung}
   \end{array}
 \end{align*}
-
 \subsubsection{Aufstellen der Zustandsgleichung aus BSB und DGL}
 
 \paragraph{aus dem Blockschaubild}
@@ -1865,8 +1864,136 @@ Besser realisierbar, aber
   \item Anfangswerte der Strecke sind unbekannt.
   \item Beide Systeme laufen ``außeinander'', falls sie nicht exakt übereinstimmen
   \end{itemize}
+\item[Versuch 3:] Schätzung mit korrigiertem Streckenmodell
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=.7\linewidth]{sysregel_No_10}
+  \end{figure}
+Abweichung der messbaren Größe wird verwendet, um über eine mit H gewichtete Rückführung das parallele Streckenmodell zu korrigieren.
+\begin{itemize}
+\item Verallgemeinerung: Zustandsraumdarstellung\\
+  \begin{table}[H]
+    \centering
+    \begin{tabular}{lll}
+      Strecke: $(\mathbf{D}=\mathbf{0})$&&paralleles Modell\\
+      $\dot{\vec{y}}=\mathbf{A}\vec{x}+\mathbf{B}\vec{u}$&&$\dot{\vec{\hat y}}=\mathbf{A}\vec{\hat x}+\mathbf{B}\vec{u}+\mathbf{H}(\vec{y}-\vec{\hat y})$\\
+      $\vec{y}=\mathbf{C}\vec{x}$&&$\vec{\hat y}=\mathbf{C}\vec{\hat x}$
+    \end{tabular}
+  \end{table}
+$\vec{\hat x}$ ist dabei eine Schätzung von $\vec{x}$
+\item Diese Schätzeinrichtung wird Beobachter genannt ($\rightarrow$ Blatt 6-1)
+\end{itemize}
 \end{description}
 
+\subsection{Beobachterentwurf}
+
+Wie ist die Beobachtermatrix $\mathbf{H}$ zu wählen?
+\begin{description}
+\item[Ziel:] $\mathbf{H}$ so wählen, dass der Schätzfehler 
+\[
+\Delta \vec{x}=\vec{x}-\hat x
+\]
+für $t\mapsto\infty$ gegen 0 geht.
+\end{description}
+Die DGL für den Schätzfehler lautet
+\[
+\Delta\dot{\vec{x}}=\dot{\vec{x}}=\dot{\vec{\hat x}}=\mathbf{A}\vec{x}+\mathbf{B}\vec{u}-\mathbf{A}\vec{x}-\mathbf{B}\vec{u}-\mathbf{H}(\vec{y}-\vec{\hat y})
+\]
+mit $\vec{y}=\mathbf{C}\vec{x}$, $\vec{\hat y}=\mathbf{C}\vec{\hat x}$
+\begin{itemize}
+\item Damit der Beobachter stabil ist und $\Delta \vec{x}\mapsto 0$ für $t \mapsto\infty$ geht, müssen die Eigenwerte von $\mathbf{A}_B$ in der linken komplexen Halbebene liegen.
+\item Eigenwertvorgabe (ähnlich wie beim Reglerentwurf):
+  \begin{enumerate}
+  \item Eigenwerte sollen links von den Eigenwerten der geregelten Strecke liegen.
+  \item Sind die Eigenwerte zu weit links, reagiert der Beobachter ``nervös" auf störungen.
+  \end{enumerate}
+\item Regler und Beobachterentwurf sind komplementär! Vgl. Blatt 6-2
+\item Vorraussetzung: Beobachtbarkeit der Strecke 
+\end{itemize}
+
+\paragraph{Anwendungen des Beobachters}
+
+\begin{itemize}
+\item Im Regelkreis
+  \begin{itemize}
+  \item Schätzung für $\vec{x}$ für die Zustandsrückführung $\rightarrow$ Blatt 6-2
+  \item Eigenwerte des Beobachters treten zu denen des geregelten Systems hinzu. 
+  \end{itemize}
+\item Außerhalb der Regelungstechnik
+  \begin{itemize}
+  \item Schätzung eines internen, nicht direkt messbaren Zustandes auf Basis des Modells und des (gestörten) Messvektors.
+  \item \textbf{Trick:} Der gesuchte Zustand muss in den Zustandsvektor aufgenommen werden
+  \end{itemize}
+\end{itemize}
+
+\begin{bsp}
+  Beschleunigungssensor (aus Übung 1)
+\end{bsp}
+
+\begin{figure}[H]
+  \centering
+ \includegraphics[width=\linewidth]{sysregel_No_12}
+\end{figure}
+Bewegungsgleichung:
+\[
+F=m\cdot a =m\cdot \ddot{x}\Rightarrow y=\int{\int{F(\tau)d\tau^2}}
+\]
+\[
+F_C=c\cdot y~~F_d=d\cdot \dot{y}
+\]
+Es werden ein paar Zahlenwerte eingesetzt: $m=0.22 \mu g~;~d=6,8\cdot 10^{-3}mN\frac{\mu s}{\mu m}~;~c=5.4\cdot 10^{-3}\frac{mN}{\mu m}~;~K_{el}=7.69\frac{V}{N}$\\
+Bisheriger Ansatz: $U_0$ ist ein Maß für die Beschleunigung. Stationär gilt:
+\[
+F=F_C
+\]
+\[
+a\cdot m=c\cdot y=c\cdot\frac{U_0}{K_{el}}
+\]
+\[
+\Rightarrow a=\frac{c}{k_ {el}\cdot m}\cdot U_0
+\]
+Verfahren um die Beschleunigung mit einem  Beobachter zu bestimmen:
+\begin{enumerate}
+\item Zustände $X_n$ und deren Ableitungen an den Ein- und Ausgängen der Integratoren einführen. Im Beispiel also $x_1, \dot{x_1}, x_2, \dot{x_2}$
+\item Beschleunigung ist Zustand $x_3$. Man erweitert also die Zustandsgleichung um Größen, die zwar zur Beschreibung des Systems nicht nötig sind, aber zur Auswertung interessant sind.
+
+  \paragraph{Zustandsraum:}
+
+  \begin{equation*}
+    \begin{pmatrix}
+      \dot{x_1}\\ \dot{x_2}\\ \dot{x_3}
+    \end{pmatrix}
+=
+\begin{pmatrix}
+  0&1&0\\
+-\frac{c}{m}&-\frac{d}{m}&1\\
+0&0&0
+\end{pmatrix}
+\begin{pmatrix}
+  x_1\\x_2\\x_3
+\end{pmatrix}
+  \end{equation*}
+  \begin{equation*}
+    y=
+    \begin{pmatrix}
+      K_{el}&0&0
+    \end{pmatrix}
+\cdot
+\begin{pmatrix}
+x_1\\x_2\\x_3  
+\end{pmatrix}
+  \end{equation*}
+\item Ist das System beobachtbar?
+  \begin{equation*}
+    Q_B=
+    \begin{pmatrix}
+      C\\CA\\CAA
+    \end{pmatrix}
+  \end{equation*}
+Rang (mit MatLAB)$\neq 0\Rightarrow$ Beobachtbar! 
+\item Mit Simulink simuliert pendelt sich der Beobachter sehr schnell auf den gesuchten Wert ein, während der Sensor sehr stark oszilliert.
+\end{enumerate}
 \end{document}
 
 
