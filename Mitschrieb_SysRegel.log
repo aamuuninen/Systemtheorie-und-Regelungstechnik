@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.5.31)  16 JUL 2010 12:32
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.5.31)  16 JUL 2010 12:48
 entering extended mode
  %&-line parsing enabled.
 **\input Mitschrieb_SysRegel.tex
@@ -1058,7 +1058,7 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 \openout5 = `Mitschrieb_SysRegel.toc'.
 
  [4]
-<sysregel_bsp_1.pdf, id=278, 236.885pt x 98.3675pt>
+<sysregel_bsp_1.pdf, id=279, 236.885pt x 98.3675pt>
 File: sysregel_bsp_1.pdf Graphic file (type pdf)
  <use sysregel_bsp_1.pdf>
 Overfull \hbox (2.61107pt too wide) in paragraph at lines 179--189
@@ -1071,14 +1071,14 @@ been already used, duplicate ignored
                    \relax 
 l.190 L
        ässt sich hier eine Gesetzmäßigkeit erkennen? Ja! Volumenbilanz:
-[2] <sysregel_bsb1.pdf, id=289, 440.64626pt x 115.43124pt>
+[2] <sysregel_bsb1.pdf, id=290, 440.64626pt x 115.43124pt>
 File: sysregel_bsb1.pdf Graphic file (type pdf)
 
-<use sysregel_bsb1.pdf> <sysregel_iglied.pdf, id=290, 389.455pt x 104.39pt>
+<use sysregel_bsb1.pdf> <sysregel_iglied.pdf, id=291, 389.455pt x 104.39pt>
 File: sysregel_iglied.pdf Graphic file (type pdf)
 
 <use sysregel_iglied.pdf>
-<sysregel_bsp_2.pdf, id=291, 261.97874pt x 161.60374pt>
+<sysregel_bsp_2.pdf, id=292, 261.97874pt x 161.60374pt>
 File: sysregel_bsp_2.pdf Graphic file (type pdf)
 
 <use sysregel_bsp_2.pdf>
@@ -1092,14 +1092,14 @@ been already used, duplicate ignored
                    \relax 
 l.229 \end{figure}
                    [3 <./sysregel_bsp_1.pdf> <./sysregel_bsb1.pdf>]
-<sysregel_bsb2.pdf, id=314, 278.03876pt x 115.43124pt>
+<sysregel_bsb2.pdf, id=315, 278.03876pt x 115.43124pt>
 File: sysregel_bsb2.pdf Graphic file (type pdf)
  <use sysregel_bsb2.pdf>
-<sysregel_spglied.pdf, id=315, 360.34625pt x 92.345pt>
+<sysregel_spglied.pdf, id=316, 360.34625pt x 92.345pt>
 File: sysregel_spglied.pdf Graphic file (type pdf)
 
 <use sysregel_spglied.pdf>
-<sysregel_pt1.pdf, id=316, 528.97626pt x 165.61874pt>
+<sysregel_pt1.pdf, id=317, 528.97626pt x 165.61874pt>
 File: sysregel_pt1.pdf Graphic file (type pdf)
  <use sysregel_pt1.pdf>pdfTeX warning (ext4): destination with the same identif
 ier (name{page.4}) has been already used, duplicate ignored
@@ -1108,27 +1108,27 @@ ier (name{page.4}) has been already used, duplicate ignored
 l.247 \end{figure}
                    [4 <./sysregel_iglied.pdf> <./sysregel_bsp_2.pdf> <./sysrege
 l_bsb2.pdf> <./sysregel_spglied.pdf>]
-<sysregel_RC.pdf, id=348, 339.2675pt x 111.41624pt>
+<sysregel_RC.pdf, id=349, 339.2675pt x 111.41624pt>
 File: sysregel_RC.pdf Graphic file (type pdf)
  <use sysregel_RC.pdf>
-<sysregel_bsb3.pdf, id=349, 278.03876pt x 134.5025pt>
+<sysregel_bsb3.pdf, id=350, 278.03876pt x 134.5025pt>
 File: sysregel_bsb3.pdf Graphic file (type pdf)
  <use sysregel_bsb3.pdf>
 [5 <./sysregel_pt1.pdf> <./sysregel_RC.pdf> <./sysregel_bsb3.pdf>]
-<sysregel_bsp_4.pdf, id=376, 261.97874pt x 168.63pt>
+<sysregel_bsp_4.pdf, id=377, 261.97874pt x 168.63pt>
 File: sysregel_bsp_4.pdf Graphic file (type pdf)
  <use sysregel_bsp_4.pdf>
 Overfull \hbox (2.61107pt too wide) in paragraph at lines 279--294
 []$[]$ $[]$ 
  []
 
-<sysregel_bsb5.pdf, id=377, 912.40875pt x 308.15125pt>
+<sysregel_bsb5.pdf, id=378, 912.40875pt x 308.15125pt>
 File: sysregel_bsb5.pdf Graphic file (type pdf)
  <use sysregel_bsb5.pdf>
-<sysregel_pt2.pdf, id=378, 229.85875pt x 59.22125pt>
+<sysregel_pt2.pdf, id=379, 229.85875pt x 59.22125pt>
 File: sysregel_pt2.pdf Graphic file (type pdf)
  <use sysregel_pt2.pdf>
-<sysregel_bsp_5.pdf, id=379, 696.6025pt x 160.6pt>
+<sysregel_bsp_5.pdf, id=380, 696.6025pt x 160.6pt>
 File: sysregel_bsp_5.pdf Graphic file (type pdf)
  <use sysregel_bsp_5.pdf>
 Overfull \hbox (2.61107pt too wide) in paragraph at lines 324--336
@@ -1136,7 +1136,7 @@ Overfull \hbox (2.61107pt too wide) in paragraph at lines 324--336
  []
 
 [6 <./sysregel_bsp_4.pdf> <./sysregel_bsb5.pdf>]
-<sysregel_tglied.pdf, id=399, 229.85875pt x 84.315pt>
+<sysregel_tglied.pdf, id=400, 229.85875pt x 84.315pt>
 File: sysregel_tglied.pdf Graphic file (type pdf)
 
 <use sysregel_tglied.pdf>
@@ -1156,10 +1156,10 @@ Overfull \hbox (19.68344pt too wide) in paragraph at lines 367--368
 und zu-sam-men-ge-setz-te []Ubertragungsglieder
  []
 
-<sysregel_bsp_6.pdf, id=424, 245.91875pt x 243.91125pt>
+<sysregel_bsp_6.pdf, id=425, 245.91875pt x 243.91125pt>
 File: sysregel_bsp_6.pdf Graphic file (type pdf)
 
-<use sysregel_bsp_6.pdf> <sysregel_bsb4.pdf, id=425, 462.72874pt x 220.825pt>
+<use sysregel_bsp_6.pdf> <sysregel_bsb4.pdf, id=426, 462.72874pt x 220.825pt>
 File: sysregel_bsb4.pdf Graphic file (type pdf)
 
 <use sysregel_bsb4.pdf>
@@ -1170,11 +1170,11 @@ Package Fancyhdr Warning: \headheight is too small (18.125pt):
  This may cause the page layout to be inconsistent, however.
 
 [8 <./sysregel_bsp_6.pdf> <./sysregel_bsb4.pdf>]
-<sysregel_klglied.pdf, id=442, 343.2825pt x 87.32625pt>
+<sysregel_klglied.pdf, id=443, 343.2825pt x 87.32625pt>
 File: sysregel_klglied.pdf Graphic file (type pdf)
 
 <use sysregel_klglied.pdf>
-<sysregel_linear.pdf, id=443, 458.71375pt x 284.06125pt>
+<sysregel_linear.pdf, id=444, 458.71375pt x 284.06125pt>
 File: sysregel_linear.pdf Graphic file (type pdf)
 
 <use sysregel_linear.pdf>
@@ -1185,11 +1185,11 @@ Package Fancyhdr Warning: \headheight is too small (18.125pt):
  This may cause the page layout to be inconsistent, however.
 
 [9 <./sysregel_klglied.pdf>]
-<sysregel_bsb6.pdf, id=456, 400.49625pt x 196.735pt>
+<sysregel_bsb6.pdf, id=457, 400.49625pt x 196.735pt>
 File: sysregel_bsb6.pdf Graphic file (type pdf)
  <use sysregel_bsb6.pdf>
 [10 <./sysregel_linear.pdf> <./sysregel_bsb6.pdf>] [11]
-<sysregel_gewfkt_1.pdf, id=483, 581.17125pt x 309.155pt>
+<sysregel_gewfkt_1.pdf, id=484, 581.17125pt x 309.155pt>
 File: sysregel_gewfkt_1.pdf Graphic file (type pdf)
 
 <use sysregel_gewfkt_1.pdf>
@@ -1197,15 +1197,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 545--549
 
  []
 
-[12] <sysregel_gewfkt_2.pdf, id=488, 581.17125pt x 309.155pt>
+[12] <sysregel_gewfkt_2.pdf, id=489, 581.17125pt x 309.155pt>
 File: sysregel_gewfkt_2.pdf Graphic file (type pdf)
 
 <use sysregel_gewfkt_2.pdf> [13 <./sysregel_gewfkt_1.pdf> <./sysregel_gewfkt_2.
-pdf>] <sysregel_einheitssprung.pdf, id=505, 511.9125pt x 220.825pt>
+pdf>] <sysregel_einheitssprung.pdf, id=506, 511.9125pt x 220.825pt>
 File: sysregel_einheitssprung.pdf Graphic file (type pdf)
 
 <use sysregel_einheitssprung.pdf> [14 <./sysregel_einheitssprung.pdf>]
-<sysregel_bsp_2,2.pdf, id=513, 713.66624pt x 414.54875pt>
+<sysregel_bsp_2,2.pdf, id=514, 713.66624pt x 414.54875pt>
 File: sysregel_bsp_2,2.pdf Graphic file (type pdf)
 
 <use sysregel_bsp_2,2.pdf>
@@ -1215,7 +1215,7 @@ io-nal zur F[]ullstandsdifferenz:
  []
 
 [15 <./sysregel_bsp_2,2.pdf>]
-<sysregel_zustandsraum.pdf, id=525, 571.13374pt x 569.12625pt>
+<sysregel_zustandsraum.pdf, id=526, 571.13374pt x 569.12625pt>
 File: sysregel_zustandsraum.pdf Graphic file (type pdf)
 
 <use sysregel_zustandsraum.pdf>
@@ -1283,11 +1283,11 @@ Overfull \hbox (35.42918pt too wide) in paragraph at lines 810--810
 []\OT1/cmr/m/n/8 Eingangsvektor $[]$ 
  []
 
-<sysregel_bsp_2-3.pdf, id=546, 796.9775pt x 327.2225pt>
+<sysregel_bsp_2-3.pdf, id=547, 796.9775pt x 327.2225pt>
 File: sysregel_bsp_2-3.pdf Graphic file (type pdf)
 
 <use sysregel_bsp_2-3.pdf> [19] [20 <./sysregel_bsp_2-3.pdf>] [21]
-<sysregel_laplace.pdf, id=573, 883.3pt x 291.0875pt>
+<sysregel_laplace.pdf, id=574, 883.3pt x 291.0875pt>
 File: sysregel_laplace.pdf Graphic file (type pdf)
 
 <use sysregel_laplace.pdf> [22 <./sysregel_laplace.pdf>] [23]
@@ -1295,7 +1295,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1028--1030
 
  []
 
-[24] <sysregel_bsp_3-4.pdf, id=597, 271.0125pt x 205.76875pt>
+[24] <sysregel_bsp_3-4.pdf, id=598, 271.0125pt x 205.76875pt>
 File: sysregel_bsp_3-4.pdf Graphic file (type pdf)
 
 <use sysregel_bsp_3-4.pdf>
@@ -1318,7 +1318,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1187--1189
 
  []
 
-[28] <sysregel_bsp_4_1.pdf, id=638, 393.47pt x 471.7625pt>
+[28] <sysregel_bsp_4_1.pdf, id=639, 393.47pt x 471.7625pt>
 File: sysregel_bsp_4_1.pdf Graphic file (type pdf)
 
 <use sysregel_bsp_4_1.pdf> [29 <./sysregel_bsp_4_1.pdf>]
@@ -1331,23 +1331,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 1322--1324
 
  []
 
-[32] <sysregel_nyquist.pdf, id=666, 688.5725pt x 327.2225pt>
+[32] <sysregel_nyquist.pdf, id=667, 688.5725pt x 327.2225pt>
 File: sysregel_nyquist.pdf Graphic file (type pdf)
 
 <use sysregel_nyquist.pdf>
-<sysregel_bsp_4_3.pdf, id=667, 634.37pt x 507.8975pt>
+<sysregel_bsp_4_3.pdf, id=668, 634.37pt x 507.8975pt>
 File: sysregel_bsp_4_3.pdf Graphic file (type pdf)
 
 <use sysregel_bsp_4_3.pdf> [33 <./sysregel_nyquist.pdf>]
-<sysregel_bsp_kap4.pdf, id=681, 739.76375pt x 182.6825pt>
+<sysregel_bsp_kap4.pdf, id=682, 739.76375pt x 182.6825pt>
 File: sysregel_bsp_kap4.pdf Graphic file (type pdf)
 
 <use sysregel_bsp_kap4.pdf> [34 <./sysregel_bsp_4_3.pdf>]
-<sysregel_bsp_4_2.pdf, id=694, 417.56pt x 273.02pt>
+<sysregel_bsp_4_2.pdf, id=695, 417.56pt x 273.02pt>
 File: sysregel_bsp_4_2.pdf Graphic file (type pdf)
  <use sysregel_bsp_4_2.pdf>
 [35 <./sysregel_bsp_kap4.pdf>] [36 <./sysregel_bsp_4_2.pdf>]
-<sysregel_regler.pdf, id=714, 1300.86pt x 360.34625pt>
+<sysregel_regler.pdf, id=715, 1300.86pt x 360.34625pt>
 File: sysregel_regler.pdf Graphic file (type pdf)
 
 <use sysregel_regler.pdf>
@@ -1356,7 +1356,7 @@ Overfull \hbox (43.20662pt too wide) in paragraph at lines 1521--1531
  []
 
 [37 <./sysregel_regler.pdf>]
-<sysregel_No_1.pdf, id=726, 869.2475pt x 182.6825pt>
+<sysregel_No_1.pdf, id=727, 869.2475pt x 182.6825pt>
 File: sysregel_No_1.pdf Graphic file (type pdf)
  <use sysregel_No_1.pdf>
 [38 <./sysregel_No_1.pdf>]
@@ -1364,40 +1364,40 @@ Underfull \hbox (badness 10000) in paragraph at lines 1605--1606
 
  []
 
-<sysregel_No_3.pdf, id=737, 760.8425pt x 293.095pt>
+<sysregel_No_3.pdf, id=738, 760.8425pt x 293.095pt>
 File: sysregel_No_3.pdf Graphic file (type pdf)
  <use sysregel_No_3.pdf>
 Underfull \hbox (badness 10000) in paragraph at lines 1611--1612
 
  []
 
-<sysregel_No_4.pdf, id=738, 760.8425pt x 293.095pt>
+<sysregel_No_4.pdf, id=739, 760.8425pt x 293.095pt>
 File: sysregel_No_4.pdf Graphic file (type pdf)
  <use sysregel_No_4.pdf>
-[39 <./sysregel_No_3.pdf>] <sysregel_No_2.pdf, id=751, 770.88pt x 404.51125pt>
+[39 <./sysregel_No_3.pdf>] <sysregel_No_2.pdf, id=752, 770.88pt x 404.51125pt>
 File: sysregel_No_2.pdf Graphic file (type pdf)
 
 <use sysregel_No_2.pdf> [40 <./sysregel_No_4.pdf> <./sysregel_No_2.pdf>]
-<sysregel_PID.pdf, id=769, 755.82375pt x 702.625pt>
+<sysregel_PID.pdf, id=770, 755.82375pt x 702.625pt>
 File: sysregel_PID.pdf Graphic file (type pdf)
  <use sysregel_PID.pdf>
-[41] <sysregel_bsp_5_4.pdf, id=775, 652.4375pt x 291.0875pt>
+[41] <sysregel_bsp_5_4.pdf, id=776, 652.4375pt x 291.0875pt>
 File: sysregel_bsp_5_4.pdf Graphic file (type pdf)
 
 <use sysregel_bsp_5_4.pdf> [42 <./sysregel_PID.pdf>]
-<sysregel_bode_5-4.pdf, id=789, 656.4525pt x 1049.9225pt>
+<sysregel_bode_5-4.pdf, id=790, 656.4525pt x 1049.9225pt>
 File: sysregel_bode_5-4.pdf Graphic file (type pdf)
 
 <use sysregel_bode_5-4.pdf> [43 <./sysregel_bsp_5_4.pdf>]
-<sysregel_No_5.pdf, id=801, 580.1675pt x 146.5475pt>
+<sysregel_No_5.pdf, id=802, 580.1675pt x 146.5475pt>
 File: sysregel_No_5.pdf Graphic file (type pdf)
  <use sysregel_No_5.pdf>
 [44 <./sysregel_bode_5-4.pdf>] [45 <./sysregel_No_5.pdf>]
-<sysregel_No_6.pdf, id=825, 182.6825pt x 363.3575pt>
+<sysregel_No_6.pdf, id=826, 182.6825pt x 363.3575pt>
 File: sysregel_No_6.pdf Graphic file (type pdf)
  <use sysregel_No_6.pdf>
 [46 <./sysregel_No_6.pdf>]
-<sysregel_No_7.pdf, id=839, 796.9775pt x 507.8975pt>
+<sysregel_No_7.pdf, id=840, 796.9775pt x 507.8975pt>
 File: sysregel_No_7.pdf Graphic file (type pdf)
  <use sysregel_No_7.pdf>
 Underfull \hbox (badness 10000) in paragraph at lines 1806--1807
@@ -1405,14 +1405,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 1806--1807
  []
 
 [47 <./sysregel_No_7.pdf>] [48]
-<sysregel_No_8.pdf, id=858, 1302.8675pt x 291.0875pt>
+<sysregel_No_8.pdf, id=859, 1302.8675pt x 291.0875pt>
 File: sysregel_No_8.pdf Graphic file (type pdf)
  <use sysregel_No_8.pdf>
-<sysregel_No_9.pdf, id=859, 688.5725pt x 435.6275pt>
+<sysregel_No_9.pdf, id=860, 688.5725pt x 435.6275pt>
 File: sysregel_No_9.pdf Graphic file (type pdf)
  <use sysregel_No_9.pdf>
 [49 <./sysregel_No_8.pdf> <./sysregel_No_9.pdf>]
-<sysregel_No_10.pdf, id=876, 760.8425pt x 372.39125pt>
+<sysregel_No_10.pdf, id=877, 760.8425pt x 372.39125pt>
 File: sysregel_No_10.pdf Graphic file (type pdf)
 
 <use sysregel_No_10.pdf>
@@ -1421,17 +1421,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 1875--1883
  []
 
 [50 <./sysregel_No_10.pdf>]
-<sysregel_No_12.pdf, id=887, 1555.8125pt x 589.20125pt>
+<sysregel_No_12.pdf, id=888, 1555.8125pt x 589.20125pt>
 File: sysregel_No_12.pdf Graphic file (type pdf)
 
 <use sysregel_No_12.pdf> [51] [52 <./sysregel_No_12.pdf>] [53]
 (./Mitschrieb_SysRegel.aux) ) 
 Here is how much of TeX's memory you used:
- 11512 strings out of 256216
- 178128 string characters out of 1917072
- 288606 words of memory out of 1500000
- 14204 multiletter control sequences out of 10000+200000
- 16534 words of font info for 75 fonts, out of 1200000 for 2000
+ 11545 strings out of 256216
+ 178481 string characters out of 1917072
+ 288597 words of memory out of 1500000
+ 14219 multiletter control sequences out of 10000+200000
+ 20783 words of font info for 96 fonts, out of 1200000 for 2000
  649 hyphenation exceptions out of 8191
  50i,25n,49p,466b,1568s stack positions out of 5000i,500n,6000p,200000b,15000s
  </home/william/.texlive2007/texmf-var/fonts/pk/lj
@@ -1443,15 +1443,16 @@ pe1/bluesky/cm/cmmi6.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi8.pfb></u
 sr/share/texmf/fonts/type1/bluesky/cm/cmr12.pfb></usr/share/texmf/fonts/type1/b
 luesky/cm/cmr6.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr8.pfb></usr/shar
 e/texmf/fonts/type1/bluesky/cm/cmsl12.pfb></usr/share/texmf/fonts/type1/bluesky
-/cm/cmss12.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmss17.pfb></usr/share/
-texmf/fonts/type1/bluesky/cm/cmssbx10.pfb></usr/share/texmf/fonts/type1/bluesky
-/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy6.pfb></usr/share/t
-exmf/fonts/type1/bluesky/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/bluesky/cm/
-cmti12.pfb></usr/share/texmf/fonts/type1/bluesky/latex-fonts/line10.pfb></usr/s
-hare/texmf/fonts/type1/bluesky/ams/msam10.pfb>
-Output written on Mitschrieb_SysRegel.pdf (56 pages, 661336 bytes).
+/cm/cmss10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmss12.pfb></usr/share/
+texmf/fonts/type1/bluesky/cm/cmss17.pfb></usr/share/texmf/fonts/type1/bluesky/c
+m/cmssbx10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy10.pfb></usr/share/
+texmf/fonts/type1/bluesky/cm/cmsy6.pfb></usr/share/texmf/fonts/type1/bluesky/cm
+/cmsy8.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmti12.pfb></usr/share/texm
+f/fonts/type1/bluesky/latex-fonts/line10.pfb></usr/share/texmf/fonts/type1/blue
+sky/ams/msam10.pfb>
+Output written on Mitschrieb_SysRegel.pdf (56 pages, 663587 bytes).
 PDF statistics:
- 1023 PDF objects out of 1200 (max. 8388607)
+ 1027 PDF objects out of 1200 (max. 8388607)
  170 named destinations out of 1000 (max. 131072)
- 20102 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 28294 words of extra memory for PDF output out of 29859 (max. 10000000)
 
